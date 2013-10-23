@@ -4,6 +4,18 @@
     <list default="true" id="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" name="Default" comment="" />
     <ignored path="CBB.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/clientService.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382254191766" ignored="false" />
+    <file path="/participantService.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382498500783" ignored="false" />
+    <file path="/Dummy.txt" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382498477097" ignored="false" />
+    <file path="/loginView.html" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382472317380" ignored="false" />
+    <file path="/app.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382478097046" ignored="false" />
+    <file path="/controllers.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382475626231" ignored="false" />
+    <file path="/index.html" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382473303890" ignored="false" />
+    <file path="$PROJECT_DIR$/../GlimmpseWWW/app/js/app.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382341097948" ignored="false" />
+    <file path="/consultants.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382464731478" ignored="false" />
+    <file path="$PROJECT_DIR$/../BiostatConsultant/server.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382377754423" ignored="false" />
+    <file path="/server.js" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382464746564" ignored="false" />
+    <file path="/signUpView.html" changelist="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" time="1382479142080" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,73 +35,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="16" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/partials/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="16" selection-start="81" selection-end="81" vertical-scroll-proportion="-5.677419">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/services/app.js">
+        <entry file="file://$PROJECT_DIR$/client/app/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="25" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
+            <state line="37" column="44" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/lib/angular.min.js">
+      <file leaf-file-name="participantService.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/app/js/services/participantService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/controllers/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="21" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cbb.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/css/cbb.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="3" selection-start="5" selection-end="5" vertical-scroll-proportion="-0.9268897">
+            <state line="34" column="23" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.047231272">
               <folding />
             </state>
           </provider>
@@ -107,14 +65,26 @@
       <list>
         <option value="$PROJECT_DIR$/app/partials/index.html" />
         <option value="$PROJECT_DIR$/app/css/cbb.css" />
+        <option value="$PROJECT_DIR$/client/app/js/services/clientService.js" />
+        <option value="$PROJECT_DIR$/routes/clients.js" />
+        <option value="$PROJECT_DIR$/client/app/js/services/app.js" />
+        <option value="$PROJECT_DIR$/routes/consultants.js" />
+        <option value="$PROJECT_DIR$/client/app/partials/loginView.html" />
+        <option value="$PROJECT_DIR$/client/app/index.html" />
+        <option value="$PROJECT_DIR$/client/app/js/controllers/controllers.js" />
+        <option value="$PROJECT_DIR$/routes/participants.js" />
+        <option value="$PROJECT_DIR$/client/app/js/app.js" />
+        <option value="$PROJECT_DIR$/client/app/partials/signUpView.html" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/client/app/js/services/participantService.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="577" />
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="968" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1292" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -142,7 +112,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,8 +129,18 @@
               <option name="myItemId" value="CBB" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shinyAttempt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -175,7 +154,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,7 +168,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -200,6 +183,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -221,6 +208,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -239,7 +230,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -253,21 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CBB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CBB" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -275,26 +260,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\munjala\Documents\GitHub\CBB" />
+      <recent name="C:\Users\munjala\Documents\GitHub\CBB\client\app\js\services" />
       <recent name="$PROJECT_DIR$/app/css" />
       <recent name="$PROJECT_DIR$/app/js/controllers" />
       <recent name="$PROJECT_DIR$/app/lib" />
-      <recent name="$PROJECT_DIR$/app/js/services" />
-      <recent name="$PROJECT_DIR$/test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\munjala\Documents\GitHub\CBB\client" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,9 +304,33 @@
       <option name="testName" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="10acc7ca-1fb9-4d87-b509-dd5de0514ac6" name="Default" comment="" />
@@ -318,13 +340,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="577" y="23" width="1920" height="968" extended-state="6" />
+    <frame x="-8" y="-8" width="1292" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24986821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15802075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -400,58 +422,94 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/.gitignore">
+    <entry file="file://$PROJECT_DIR$/client/app/lib/angular.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/css/cbb.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="3" selection-start="6" selection-end="6" vertical-scroll-proportion="0.047231272" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/partials/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="16" selection-start="325" selection-end="325" vertical-scroll-proportion="-0.20415226" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/js/services/clientService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="49" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.4723127" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/js/services/powerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/clients.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="29" selection-start="1074" selection-end="1074" vertical-scroll-proportion="1.8420196" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/.gitignore">
+    <entry file="file://$PROJECT_DIR$/client/app/partials/loginView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="50" column="43" selection-start="1454" selection-end="1479" vertical-scroll-proportion="1.1440994" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/partials/signUpView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="48" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.531677" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/lib/exporting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="280" column="58" selection-start="10078" selection-end="10078" vertical-scroll-proportion="0.05017301" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="44" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/.gitignore">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="16" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
+        <state line="16" column="32" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/partials/index.html">
+    <entry file="file://$PROJECT_DIR$/client/app/js/controllers/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="81" selection-end="81" vertical-scroll-proportion="-5.677419">
+        <state line="3026" column="32" selection-start="119892" selection-end="119892" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/services/app.js">
+    <entry file="file://$PROJECT_DIR$/routes/participants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="25" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
+        <state line="46" column="10" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.047231272">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/angular.min.js">
+    <entry file="file://$PROJECT_DIR$/client/app/js/services/participantService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/controllers/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="21" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/cbb.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="3" selection-start="5" selection-end="5" vertical-scroll-proportion="-0.9268897">
+        <state line="34" column="23" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.047231272">
           <folding />
         </state>
       </provider>
