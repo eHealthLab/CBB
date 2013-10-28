@@ -3021,6 +3021,30 @@ cbbApp.controller('stateController',
             //$scope.participantList = $scope.participantSvc.getAll();
         }
 
+        $scope.loginTry = function(){
+            //window.alert("Failure");
+            $http({method: 'GET', url: 'http://localhost:3000/' + $scope.newParticipant.email}).
+                success(function(data, status, headers, config) {
+                    window.alert("Success" + data + status);
+                    $scope.appsData = data;
+                    if($scope.newParticipant.email == $scope.appsData.email
+                        )
+                        window.alert("Success" + $scope.appsData.email);
+                    else
+                        window.alert("Failure" + $scope.appsData.email);
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failurea" + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            /*$scope.getParticipants = function() {
+             $scope.participantSvc.getParticipants().then(function(data) {
+             $scope.participantsList = angular.fromJson(data);
+             })
+             }*/
+        }
+
         /**
          * Add a new participant and update the database
          */
@@ -3031,7 +3055,7 @@ cbbApp.controller('stateController',
                 window.alert("inside service");
                 $scope.participantSvc.add($scope.newParticipant).then(function(data) {
 
-                    window.alert("just finished");
+                    window.alert("just finished" + data);
                 })
             }
         }
@@ -3049,6 +3073,29 @@ cbbApp.controller('stateController',
         }
     })
 
+/**
+ * Controller for the list of consultants
+ */
+    .controller('feedbackController',
+    function($scope, $http, participantService) {
+
+        init();
+        function init() {
+            $scope.participantSvc = participantService;
+            $scope.feedbackText = undefined;
+            //$scope.participantList = $scope.participantSvc.getAll();
+        }
+
+        /**
+         * Add a new participant and update the database
+         */
+        $scope.sendFeedback = function() {
+            window.alert("inside feedback function" + $scope.feedbackText);
+
+        };
+
+
+    })
 
 /**
  * Main study design controller

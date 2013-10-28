@@ -143,7 +143,7 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
 
             // contact us screens
             .when('/feedback',
-            {templateUrl: 'partials/feedbackView.html', controller: 'resultsReportController' }
+            {templateUrl: 'partials/feedbackView.html', controller: 'feedbackController' }
 
         )
             .when('/contactInfo',

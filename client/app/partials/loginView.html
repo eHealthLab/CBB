@@ -17,6 +17,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
 
+
 <h3>Log in screen</h3>
 <p>
     Please login with your credentials.
@@ -24,16 +25,6 @@
 
 <div class="input-group">
     <table>
-        <tr>
-            <td>
-                Enter your name
-            </td>
-            <td>
-                <input type="text"
-                       ng-model="newParticipant.name">
-                </input>
-            </td>
-        </tr>
         <tr>
             <td>
                 Enter your email
@@ -44,10 +35,64 @@
                 </input>
             </td>
         </tr>
+        <tr>
+            <td>
+                Enter your password
+            </td>
+            <td>
+                <input type="text"
+                       ng-model="newParticipant.password">
+                </input>
+            </td>
+        </tr>
     </table>
 
 </div>
 
+        <!--
 <button ng-click="authenticateParticipant()">
     Login
 </button>
+-->
+
+<button ng-click="loginTry()">
+    Login
+</button>
+
+
+
+<!--
+
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#user-submit').click(function () {
+                var payload = {
+                    name: $('#user-name').val()
+                };
+
+                $.ajax({
+                    url: "/participants",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h3>Enter a username to enter into the database:</h3>
+<input id="user-name" type="text" />
+<input id="user-submit" type="submit" />
+<p id="output"></p>
+</body>
+</html>
+-->

@@ -32,7 +32,7 @@ cbbApp.factory('participantService', function($http, $q, cbbConstants) {
         var deferred = $q.defer();
         window.alert("inside service");
         //Calling Web API to fetch shopping cart items
-        $http.post('URL', angular.toJson(participant)).success(function(data){
+        $http.post('/', angular.toJson(participant)).success(function(data){
              window.alert("success");
             //Passing data to deferred's resolve function on successful completion
             deferred.resolve(data);
