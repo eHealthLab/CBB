@@ -31,11 +31,12 @@
         Please type your message below and hit the "Submit" button.
     </p>
 <div>
-    <input type=text, placeholder="Please type your feedback here; Limit 150."
+    <input type=text, placeholder="Please type your feedback here; Limit 250 character."
             ng-model="feedbackText"
-            maxlength="150"
+            maxlength="250"
             style="width: 400px;
             height: 150px"
+            wrap="true"
 
            >
     </input>

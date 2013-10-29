@@ -3023,18 +3023,17 @@ cbbApp.controller('stateController',
 
         $scope.loginTry = function(){
             //window.alert("Failure");
-            $http({method: 'GET', url: 'http://localhost:3000/' + $scope.newParticipant.email}).
+            //window.alert($scope.newParticipant.password);
+            $http.get('http://localhost:3000/' + $scope.newParticipant.email + '/' + $scope.newParticipant.password).
                 success(function(data, status, headers, config) {
-                    window.alert("Success" + data + status);
                     $scope.appsData = data;
-                    if($scope.newParticipant.email == $scope.appsData.email
-                        )
-                        window.alert("Success" + $scope.appsData.email);
+                    if($scope.appsData == "true")
+                        window.alert("Success");
                     else
-                        window.alert("Failure" + $scope.appsData.email);
+                        $scope.loginErrorNotification = "Check the login information and try again."
                 }).
                 error(function(data, status, headers, config) {
-                    window.alert("Failurea" + status);
+                    window.alert("Failure" + status);
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
                 });
@@ -3043,22 +3042,53 @@ cbbApp.controller('stateController',
              $scope.participantsList = angular.fromJson(data);
              })
              }*/
-        }
+        };
 
-        /**
-         * Add a new participant and update the database
-         */
-        $scope.addParticipant = function() {
-            window.alert("inside add function");
-            if ($scope.newParticipant.firstName != undefined && $scope.newParticipant.firstName.length > 0
-                && $scope.newParticipant.lastName != undefined && $scope.newParticipant.lastName.length > 0) {
-                window.alert("inside service");
-                $scope.participantSvc.add($scope.newParticipant).then(function(data) {
 
-                    window.alert("just finished" + data);
-                })
-            }
-        }
+        $scope.signupTry = function(){
+            //window.alert("Failure");
+
+            $http.get('http://localhost:3000/' + $scope.newParticipant.email).
+                success(function(data, status, headers, config) {
+                    $scope.appsData = data;
+                    if($scope.appsData == "true"){
+                        window.alert("Email ID already exists. Please use a different Email.");
+                    }
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure" + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+
+            $http({method: 'POST',
+                url: 'http://localhost:3000/' +
+                    $scope.newParticipant.firstName + '/' +
+                    $scope.newParticipant.lastName + '/' +
+                    $scope.newParticipant.email + '/' +
+                    $scope.newParticipant.password
+            }).
+                success(function(data, status, headers, config) {
+                    $scope.appsData = data;
+                    if(data == "success")
+                        window.alert("Success Signup");
+                    else
+                        $scope.signupErrorNotification = "Check the login information and try again."
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure" + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            /*$scope.getParticipants = function() {
+             $scope.participantSvc.getParticipants().then(function(data) {
+             $scope.participantsList = angular.fromJson(data);
+             })
+             }*/
+        };
+
+
+
 
         /**
          * Authenticate existing participant on login screen
