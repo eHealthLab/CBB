@@ -3048,9 +3048,10 @@ cbbApp.controller('stateController',
         $scope.signupTry = function(){
             //window.alert("Failure");
 
+            var email = $scope.newParticipant.email.toUpperCase();
             if(!$scope.newParticipant.firstName) $scope.signUpErrorFirstName = "Enter your first name.";
             else if(!$scope.newParticipant.lastName) $scope.signUpErrorLastName = "Enter your last name.";
-            else if(!$scope.newParticipant.email) $scope.signUpErrorEmail = "Enter your Email.";
+            else if(!email) $scope.signUpErrorEmail = "Enter a valid Email.";
             else if(!$scope.newParticipant.password) $scope.signUpErrorPassword = "Enter a password.";
             else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Passwords do not match. Correct them and try again.";
             else {
@@ -3058,7 +3059,7 @@ cbbApp.controller('stateController',
                     url: 'http://localhost:3000/' +
                         $scope.newParticipant.firstName + '/' +
                         $scope.newParticipant.lastName + '/' +
-                        $scope.newParticipant.email + '/' +
+                        email + '/' +
                         $scope.newParticipant.password
                 }).
                     success(function(data, status, headers, config) {
