@@ -17,30 +17,30 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
 
+<div class=well>
+<h3>Please Log in</h3>
 
-<h3>Log in screen</h3>
-<p>
-    Please login with your credentials.
-</p>
 
 <div class="input-group">
-    <table>
+    <table class="list-entry">
         <tr>
             <td>
-                Enter your email
+                Email
             </td>
             <td>
                 <input type="text"
+                       placeholder="Enter email"
                        ng-model="newParticipant.email">
                 </input>
             </td>
         </tr>
         <tr>
             <td>
-                Enter your password
+                Password
             </td>
             <td>
                 <input type="text"
+                       placeholder="Enter password"
                        ng-model="newParticipant.password">
                 </input>
             </td>
@@ -56,44 +56,50 @@ Login
 </button>
 -->
 
-<button ng-click="loginTry()">
-    Login
-</button>
+<div>
+        <a class="calculate-button" href="#/home"
+           ng-click="loginTry()">Login</a>
+</div>
 
+    <!--
+        <button ng-click="loginTry()">
+        Login
+    </button>
 
+    </div>
+    -->
+    <!--
 
-<!--
+    <!doctype html>
+    <html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#user-submit').click(function () {
+                    var payload = {
+                        name: $('#user-name').val()
+                    };
 
-<!doctype html>
-<html>
-<head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#user-submit').click(function () {
-                var payload = {
-                    name: $('#user-name').val()
-                };
-
-                $.ajax({
-                    url: "/participants",
-                    type: "POST",
-                    contentType: "application/json",
-                    processData: false,
-                    data: JSON.stringify(payload),
-                    complete: function (data) {
-                        $('#output').html(data.responseText);
-                    }
+                    $.ajax({
+                        url: "/participants",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
                 });
             });
-        });
-    </script>
-</head>
-<body>
-<h3>Enter a username to enter into the database:</h3>
-<input id="user-name" type="text" />
-<input id="user-submit" type="submit" />
-<p id="output"></p>
-</body>
-</html>
--->
+        </script>
+    </head>
+    <body>
+    <h3>Enter a username to enter into the database:</h3>
+    <input id="user-name" type="text" />
+    <input id="user-submit" type="submit" />
+    <p id="output"></p>
+    </body>
+    </html>
+    -->

@@ -48,7 +48,7 @@ body {
     background: -webkit-linear-gradient(top,  rgba(38,91,134,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(top,  rgba(38,91,134,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  rgba(38,91,134,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  rgba(38,91,134,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    background: repeating-linear-gradient(to bottom,  rgba(188,143,143,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#265b86', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 
 }
@@ -138,14 +138,14 @@ button:focus {
 #glimmpse-logo {
 	font-family: Palatino, Arial, Helvetica, sans-serif;
     font-weight: bold;
-	padding-left: 55px;
+	padding-left: 75px;
 	padding-top: 15px;
 	padding-right: 10px;
 	font-size: 24pt;
-	background-image: url('../img/glimmpse.png');
+	background-image: url('../img/bb-logo.png');
 	background-repeat: no-repeat;
-	background-position: 10px 10px;
-    background-size: 36px 36px;
+	background-position: 20px 20px;
+    background-size: 50px 50px;
 	color: white;
 	height: 50px;
 	float: left;
@@ -366,9 +366,9 @@ button:focus {
 
 .calculate-button, .calculate-button-disabled {
     display: block;
-    color: white;
+    color: black;
     background: none repeat scroll 0% 0% #5DC68B;
-    border: 2px solid #58B781;
+    border: 1px solid #58B781;
     text-shadow: 0px 1px 3px #24603E;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
@@ -379,9 +379,9 @@ button:focus {
     font-size:20px;
     text-align: center;
 
-    width: 120px;
+    width: 100px;
     line-height: 30px;
-    margin-left: 100px;
+    margin-left: 130px;
     margin-top: 20px;
 }
 
@@ -731,7 +731,7 @@ table.table-entry-contents {
 }
 
 .input-group {
-    border: 1px solid #ccc;
+    border: 3px solid #ccc;
     padding: 10px;
     margin: 0px 20px;
 }

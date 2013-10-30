@@ -17,7 +17,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
 
-<h3>Sign up screen</h3>
+<h3>Sign up</h3>
 <p>
     Please sign up for the app.
 </p>
@@ -26,48 +26,53 @@
     <table>
         <tr>
             <td>
-                Enter your first name
+                First name
             </td>
             <td>
                 <input type="text"
+                       placeholder="Enter first name"
                        ng-model="newParticipant.firstName">
                 </input>
             </td>
         </tr>
         <td>
-            Enter your last name
+            Last name
         </td>
         <td>
             <input type="text"
+                   placeholder="Enter last name"
                    ng-model="newParticipant.lastName">
             </input>
         </td>
         <tr>
             <td>
-                Enter your email address
+               Email address
             </td>
             <td>
                 <input type="text"
+                       placeholder="Enter email"
                        ng-model="newParticipant.email">
                 </input>
             </td>
         </tr>
         <tr>
             <td>
-                Enter your password
+                Password
             </td>
             <td>
                 <input type="text"
+                       placeholder="Enter password"
                        ng-model="newParticipant.password">
                 </input>
             </td>
         </tr>
         <tr>
             <td>
-                Confirm your password
+                Retype password
             </td>
             <td>
                 <input type="text"
+                       placeholder="Confirm password"
                        ng-model="newParticipant.passwordConfirm">
                 </input>
             </td>
