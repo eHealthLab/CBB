@@ -51,7 +51,7 @@ exports.addUser = function(req, res){
     var password = req.params.password;
     //var passwordConfirm = req.body.passwordConfirm;
     if(connection) {
-        var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + password + "')";
+        var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             res.send("success");
