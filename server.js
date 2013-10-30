@@ -25,6 +25,7 @@ app.get('/', get.all);
 //app.get('/:email', get.checkEmail)
 app.get('/:id/:pwd', get.one);
 app.post('/:firstname/:lastname/:email/:password', get.addUser);
+app.post('/:feedback', get.addFeedback);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));

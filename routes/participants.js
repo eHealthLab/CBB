@@ -49,9 +49,19 @@ exports.addUser = function(req, res){
     var lastname = req.params.lastname;
     var email = req.params.email;
     var password = req.params.password;
-    //var passwordConfirm = req.body.passwordConfirm;
     if(connection) {
         var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + password + "')";
+        connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            res.send("success");
+        });
+    }
+};
+
+exports.addFeedback = function(req, res){
+    var feedback = req.params.feedback;
+    if(connection) {
+        var queryString = "insert into feedback values('" + feedback + "')";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             res.send("success");

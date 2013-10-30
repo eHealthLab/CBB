@@ -3121,7 +3121,25 @@ cbbApp.controller('stateController',
          */
         $scope.sendFeedback = function() {
             window.alert("inside feedback function" + $scope.feedbackText);
+            if ($scope.feedbackText != undefined) {
 
+                $http({method: 'POST',
+                    url: 'http://localhost:3000/' +
+                        $scope.feedbackText
+                }).
+                success(function(data, status, headers, config) {
+                        $scope.appsData = data;
+                        if(data == "success")
+                            window.alert("Success inserting feedback");
+                        else
+                            window.alert("Failure inserting feedback");
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure" + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
         };
 
 
