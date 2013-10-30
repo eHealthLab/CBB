@@ -1,64 +1,234 @@
-<!--
-* CBB (Colorado Bright Beginnings)
-* Copyright (C) 2013 Regents of the University of Colorado.
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public License
-* as published by the Free Software Foundation; either version 2
-* of the License, or (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program; if not, write to the Free Software
-* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
--->
 
-<!--<h3>Display text messages</h3>-->
-
-<!--<div ng-show="glimmpseConstants.debug == true">{{studyDesign.alphaList}}</div>-->
-
-
+<!doctype html>
 <html>
 <head>
-    <title>HTML Generator Sample Page</title> </head> <body> <table border="1"
-    cellpadding="1" cellspacing="1" style="color: white; background-color:
-    rgb(59, 75, 155); width: 100%; height: 100%;">
+    <title>Notification bubble with CSS3 keyframe animation - demo</title>
+    <style>
+        .animating{
+            -webkit-animation: animate 1s cubic-bezier(0,1,1,0);
+            -moz-animation: animate 1s cubic-bezier(0,1,1,0);
+            -ms-animation: animate 1s cubic-bezier(0,1,1,0);
+            -o-animation: animate 1s cubic-bezier(0,1,1,0);
+            animation: animate 1s cubic-bezier(0,1,1,0);
+        }
+
+        @-webkit-keyframes animate{
+            from {
+                -webkit-transform: scale(1);
+            }
+            to {
+                -webkit-transform: scale(1.7);
+            }
+        }
+
+        @-moz-keyframes animate{
+            from {
+                -moz-transform: scale(1);
+            }
+            to {
+                -moz-transform: scale(1.7);
+            }
+        }
+
+        @-ms-keyframes animate{
+            from {
+                -ms-transform: scale(1);
+            }
+            to {
+                -ms-transform: scale(1.7);
+            }
+        }
+
+        @-o-keyframes animate{
+            from {
+                -o-transform: scale(1);
+            }
+            to {
+                -o-transform: scale(1.7);
+            }
+        }
+
+        @keyframes animate{
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.7);
+            }
+        }
+
+            /* ------------------------------------------- */
+
+        body{
+            text-align: center;
+        }
+
+        .menu{
+            margin: 50px auto 20px;
+            width: 104px;
+
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu {
+            border: 1px solid #111;
+
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            -moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+            -webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+            box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+            float: left;
+            position: relative;
+            top: 25px;
+            -moz-box-shadow: 1px 0 0 #444;
+        }
+
+
+
+
+
+        .menu {
+            zoom:1;
+        }
+
+
+        .menu a {
+            float: left;
+            padding: 12px 30px;
+            color: #bbb;
+            text-transform: uppercase;
+            font: bold 12px Arial, Helvetica;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: #fafafa;
+        }
+
+
+
+        .menu .bubble
+        {
+            background: #e02424;
+            position: absolute;
+            right: 5px;
+            top: -5px;
+            padding: 2px 6px;
+            color: #fff;
+            font: bold .9em Tahoma, Arial, Helvetica;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+
+
+
+
+
+        .messageBody{
+            display:none;
+            position:absolute;
+            top:50px;
+            border:1px ;cellpadding:1px ;cellspacing:1px ;
+            font-family: white;
+            background-color: rgb(59, 75, 155);
+        }
+        .messageContent
+
+        {
+
+            position:absolute;
+            top:25px;
+            left:200px;
+            border:2px solid #a1a1a1;
+            padding:10px 20px;
+            background:#dddddd;
+            width:250px;
+
+            border-radius:25px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="menu">
+
+
+    Message
+    <span class="bubble">9</span>
+
+
+    <!--<li><a href="">home</a></li>  -->
+</div>
+<div class="messageBody">
     <!-- Codes by HTML.am -->
-<thead>
-<h3>
-    Text Messages
-</h3>
-<tr>
-    <th scope="col">
-        Messgae</th>
-</tr>
-</thead>
-    <tbody>
-    <tr>
-        <td style="text-align: center;">
-            Text 1</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;">
-            Text 2</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;">
-            Text 3</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;">
-            Text 4</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;">
-            Text 5</td>
-    </tr>
-    </tbody>
-</table>
+    <div class="messageContent">
+
+        <p >
+
+            Name: <span id="jname"></span><br>
+            Age: <span id="jage"></span><br>
+            Address: <span id="jstreet"></span><br></span>
+        </p>
+        <p>
+
+        </p>
+
+    </div>
+
+
+
+</div>
+
+<button id="decrement">Decrement notification</button>
+<button id="increment">Increment notification</button>
+<script>
+    var JSONObject = {
+        "name":"John Johnson",
+        "street":"Oslo West 16",
+        "age":33,
+        "phone":"555 1234567"};
+    document.getElementById("jname").innerHTML=JSONObject.name
+    document.getElementById("jage").innerHTML=JSONObject.age
+    document.getElementById("jstreet").innerHTML=JSONObject.street
+    document.getElementById("jphone").innerHTML=JSONObject.phone
+</script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $(".menu").on('click', function() {
+        $(".messageBody").fadeIn();
+
+    });
+    var counterValue = parseInt($('.bubble').html());
+    function removeAnimation(){
+        setTimeout(function() {
+            $('.bubble').removeClass('animating')
+        }, 1000);
+    }
+
+    $('#decrement').on('click',function(){
+        counterValue--;
+        $('.bubble').html(counterValue).addClass('animating');
+        removeAnimation();
+    })
+
+    $('#increment').on('click',function(){
+        counterValue++;
+        $('.bubble').html(counterValue).addClass('animating');
+        removeAnimation();
+    })
+</script>
+
+
 </body>
 </html>

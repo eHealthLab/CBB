@@ -25,17 +25,20 @@
 
 <body>
 
+<div class=well>
 <h3>Feedback</h3>
     <p>
         Thank you for using CBB1.0. Your feedback is very important to us.
         Please type your message below and hit the "Submit" button.
     </p>
 <div>
-    <input type=text, placeholder="Please type your feedback here; Limit 250 character."
+    <input class="form-control"
+           type=text,
+           placeholder="Please type your feedback here; Limit 250 characters."
             ng-model="feedbackText"
             maxlength="250"
             style="width: 400px;
-            height: 150px"
+            height: 130px"
             wrap="true"
 
            >
@@ -44,6 +47,7 @@
 <div>
     <a class="calculate-button" href="#/home"
        ng-click="sendFeedback()">Submit</a>
+</div>
 </div>
 </body>
 </html>

@@ -90,6 +90,7 @@ button:focus {
     -webkit-border-radius: 4px;
     -khtml-border-radius: 4px;
     border-radius: 4px;
+    margin-top: 20px;
 }
 
 .shaded-box {
@@ -378,9 +379,10 @@ button:focus {
     font-size:20px;
     text-align: center;
 
-    width: 180px;
-    line-height: 40px;
-    margin-left: 10px;
+    width: 120px;
+    line-height: 30px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
 
 .calculate-button-disabled {
@@ -422,6 +424,7 @@ button:focus {
     border-bottom: 1px solid #cccccc; */
     width: 200px;
     margin-left: 10px;
+    margin-top: 20px;
     /*padding-bottom: 10px;  */
 }
 
