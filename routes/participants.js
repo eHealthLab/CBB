@@ -20,15 +20,17 @@ exports.one = function(req, res){
         var queryString = "select * from participants where email = ?";
         connection.query(queryString, [id], function(err, rows, fields) {
             if (err) throw err;
-            if(rows[0].email == id && rows[0].password == pwd)
-                res.send("true");
-            else
-                res.send("false");
+            if(rows[0] != undefined){
+		if(rows[0].email == id && rows[0].password == pwd)
+                	res.send("true");
+            	else
+                	res.send("false");
+	    }else res.send("false");
         });
     }
 };
 
-exports.checkEmail = function(req, res){
+/*exports.checkEmail = function(req, res){
     var email = req.params.email;
     if (connection) {
         var queryString = "select * from participants where email = ?";
@@ -40,7 +42,7 @@ exports.checkEmail = function(req, res){
                 res.send("false");
         });
     }
-}
+}*/
 
 exports.addUser = function(req, res){
     var firstname = req.params.firstname;

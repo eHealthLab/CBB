@@ -22,7 +22,7 @@ app.configure('development', function(){
 });
 
 app.get('/', get.all);
-app.get('/:email', get.checkEmail)
+//app.get('/:email', get.checkEmail)
 app.get('/:id/:pwd', get.one);
 app.post('/:firstname/:lastname/:email/:password', get.addUser);
 
