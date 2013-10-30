@@ -23,7 +23,16 @@
 </p>
 
 <div class="input-group">
+
     <table class="list-entry">
+
+    <style type="text/css">
+        .errorClassSignUp{
+            color: red;
+        }
+    </style>
+    <table>
+
         <tr>
             <td>
                 First name
@@ -34,16 +43,25 @@
                        ng-model="newParticipant.firstName">
                 </input>
             </td>
+            <td class="errorClassSignUp">
+                {{ signUpErrorFirstName }}
+            </td>
         </tr>
-        <td>
-            Last name
-        </td>
-        <td>
-            <input type="text"
-                   placeholder="Enter last name"
-                   ng-model="newParticipant.lastName">
-            </input>
-        </td>
+        <tr>
+            <td>
+                Last name
+            </td>
+
+            <td>
+                <input type="text"
+                       placeholder="Enter last name"
+                       ng-model="newParticipant.lastName">
+                </input>
+            </td>
+            <td class="errorClassSignUp">
+                {{ signUpErrorLastName }}
+            </td>
+        </tr>
         <tr>
             <td>
                Email address
@@ -54,16 +72,22 @@
                        ng-model="newParticipant.email">
                 </input>
             </td>
+            <td class="errorClassSignUp">
+                {{ signUpErrorEmail }}
+            </td>
         </tr>
         <tr>
             <td>
                 Password
             </td>
             <td>
-                <input type="text"
+                <input type="password"
                        placeholder="Enter password"
                        ng-model="newParticipant.password">
                 </input>
+            </td>
+            <td class="errorClassSignUp">
+                {{ signUpErrorPassword }}
             </td>
         </tr>
         <tr>
@@ -71,18 +95,19 @@
                 Retype password
             </td>
             <td>
-                <input type="text"
+                <input type="password"
                        placeholder="Confirm password"
                        ng-model="newParticipant.passwordConfirm">
                 </input>
             </td>
         </tr>
     </table>
+    <h6><p  class="errorClassSignUp">{{ signUpErrorNotification }}</p></h6>
 
 </div>
 
 <div>
-    <a class="calculate-button" href="#/home"
+    <a class="calculate-button"
        ng-click="signupTry()">Sign Up</a>
 </div>
 

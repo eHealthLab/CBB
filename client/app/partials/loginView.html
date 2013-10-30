@@ -41,7 +41,7 @@
                 Password
             </td>
             <td>
-                <input type="text"
+                <input type="password"
                        placeholder="Enter password"
                        ng-model="newParticipant.password">
                 </input>
@@ -51,6 +51,19 @@
     <h6><p style="color: red">{{ loginErrorNotification }}</p></h6>
 
 </div>
+
+
+<!--
+<button ng-click="authenticateParticipant()">
+Login
+</button>
+-->
+
+<div>
+        <a class="calculate-button"
+           ng-click="loginTry()">Login</a>
+</div>
+
 
     <!--
     <div>

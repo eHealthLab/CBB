@@ -50,7 +50,7 @@ exports.addUser = function(req, res){
     var email = req.params.email;
     var password = req.params.password;
     if(connection) {
-        var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + password + "')";
+        var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             res.send("success");
