@@ -17,99 +17,100 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
 <div class=well>
-<h3>Sign up</h3>
-<p>
-    Please enter the following information to sign up for the app.
-</p>
+    <h3>Sign up</h3>
+    <p>
+        Please enter the following information to sign up for the app.
+    </p>
 
-<div class="input-group">
+    <div class="input-group">
 
-    <table class="list-entry">
+        <table>
 
-    <style type="text/css">
-        .errorClassSignUp{
-            color: red;
-        }
-    </style>
-    <table>
 
-        <tr>
-            <td>
-                First name
-            </td>
-            <td>
-                <input type="text"
-                       placeholder="Enter first name"
-                       ng-model="newParticipant.firstName">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ signUpErrorFirstName }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Last name
-            </td>
+            <style type="text/css">
+                .errorClassSignUp{
+                    color: red;
+                }
+            </style>
 
-            <td>
-                <input type="text"
-                       placeholder="Enter last name"
-                       ng-model="newParticipant.lastName">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ signUpErrorLastName }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-               Email address
-            </td>
-            <td>
-                <input type="text"
-                       placeholder="Enter email"
-                       ng-model="newParticipant.email">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ signUpErrorEmail }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Password
-            </td>
-            <td>
-                <input type="password"
-                       placeholder="Enter password"
-                       ng-model="newParticipant.password">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ signUpErrorPassword }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Retype password
-            </td>
-            <td>
-                <input type="password"
-                       placeholder="Confirm password"
-                       ng-model="newParticipant.passwordConfirm">
-                </input>
-            </td>
-        </tr>
-    </table>
-    <h6><p  class="errorClassSignUp">{{ signUpErrorNotification }}</p></h6>
+            <tr>
+                <td>
+                    First name
+                </td>
+                <td>
+                    <input type="text"
+                           placeholder="Enter first name"
+                           ng-model="newParticipant.firstName">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ signUpErrorFirstName }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last name
+                </td>
 
-</div>
+                <td>
+                    <input type="text"
+                           placeholder="Enter last name"
+                           ng-model="newParticipant.lastName">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ signUpErrorLastName }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Email address
+                </td>
+                <td>
+                    <input type="text"
+                           placeholder="Enter email"
+                           ng-model="newParticipant.email">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ signUpErrorEmail }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password"
+                           placeholder="Enter password"
+                           ng-model="newParticipant.password">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ signUpErrorPassword }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Retype password
+                </td>
+                <td>
+                    <input type="password"
+                           placeholder="Confirm password"
+                           ng-model="newParticipant.passwordConfirm">
+                    </input>
+                </td>
+            </tr>
+        </table>
 
-<div>
-    <a class="calculate-button"
-       ng-click="signupTry()">Sign Up</a>
-</div>
+        <h6><p  class="errorClassSignUp">{{ signUpErrorNotification }}</p></h6>
+
+    </div>
+
+    <div>
+        <a class="calculate-button"
+           ng-click="signupTry()">Sign Up</a>
+    </div>
 
 </div>
 
