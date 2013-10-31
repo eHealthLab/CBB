@@ -1,6 +1,7 @@
 var express = require('express')
     , cors = require('cors')
     , get = require('./routes/participants')
+    , getdata = require('./routes/getdata')
     , http = require('http')
     , path = require('path');
 
@@ -21,9 +22,9 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
-app.get('/', get.all);
-//app.get('/:email', get.checkEmail)
+//app.get('/', get.all);
 app.get('/:id/:pwd', get.one);
+app.get('/', getdata.one);
 app.post('/:firstname/:lastname/:email/:password', get.addUser);
 app.post('/:feedback', get.addFeedback);
 

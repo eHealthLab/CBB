@@ -147,7 +147,7 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
 
         )
             .when('/contactInfo',
-            {templateUrl: 'partials/contactInfoView.html', controller: 'resultsPlotController' }
+            {templateUrl: 'partials/contactInfoView.html', controller: 'contactInfoController' }
 
         )
 

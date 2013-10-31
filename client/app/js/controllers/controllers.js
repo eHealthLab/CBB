@@ -3098,6 +3098,38 @@ cbbApp.controller('stateController',
         }
     })
 
+/*
+    Controller for text messages
+     */
+
+    .controller('contactInfoController', function($scope, $http, participantService) {
+
+        $scope.getMessages = function(){
+            //window.alert("Failure");
+            //window.alert($scope.newParticipant.password);
+            $scope.textMessageFlag = 0;
+            $http.get('http://localhost:3000/').
+                success(function(data, status, headers, config) {
+                    window.alert("Success");
+                    $scope.messageArray = data;
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure" + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            /*$scope.getParticipants = function() {
+             $scope.participantSvc.getParticipants().then(function(data) {
+             $scope.participantsList = angular.fromJson(data);
+             })
+             }*/
+        };
+
+        $scope.textMessageSetFlag = function(textMessageID){
+            $scope.textMessageFlag = textMessageID;
+        }
+    })
+
 /**
  * Controller for the list of consultants
  */
