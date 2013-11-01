@@ -61,8 +61,12 @@
         <ul>
             <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'" ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
-                <input type="text" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag"></input>
-                <button ng-show="textMessage.ID == textMessageFlag && textMessage.inflag" ng-click="submitMessage(textMessage.ID)">Submit Message</button>
+                <span>
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ textMessage.inb3 }}</p>
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ messageArray[textMessage.nextmessage].message }}</p>
+                    <input type="text" ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3"></input>
+                    <button ng-show="textMessage.ID == textMessageFlag && textMessage.inflag" ng-click="submitMessage(textMessage.ID)">Submit Message</button>
+                </span>
                 <br ng-show="textMessage.ID == textMessageFlag" />
             </li>
         </ul>
