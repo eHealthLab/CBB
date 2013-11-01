@@ -3218,6 +3218,47 @@ cbbApp.controller('stateController',
 
 
     })
+/**
+ * Controller for the list of consultants
+ */
+
+    .controller('responseController',
+    function($scope, $http, participantService) {
+
+        init();
+        function init() {
+            $scope.participantSvc = participantService;
+            $scope.response = undefined;
+            //$scope.participantList = $scope.participantSvc.getAll();
+        }
+
+        /**
+         * Add a new participant and update the database
+         */
+        $scope.sendResponse = function() {
+            window.alert("inside response function" + $scope.response);
+            if ($scope.response != undefined) {
+
+                $http({method: 'POST',
+                    url: 'http://localhost:3000/' +
+                        $scope.response
+                }).
+                    success(function(data, status, headers, config) {
+                        $scope.appsData = data;
+                        if(data == "success")
+                            window.alert("Success inserting response");
+                        else
+                            window.alert("Failure inserting response");
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+            }
+        };
+
+    })
 
 /**
  * Main study design controller

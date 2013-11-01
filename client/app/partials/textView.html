@@ -1,234 +1,162 @@
+<!--
+* CBB (Colorado Bright Beginnings)
+* Copyright (C) 2013 Regents of the University of Colorado.
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program; if not, write to the Free Software
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
 
-<!doctype html>
+<!--<h3>Display text messages</h3>-->
+
+<!--<div ng-show="glimmpseConstants.debug == true">{{studyDesign.alphaList}}</div>-->
+
+
 <html>
 <head>
-    <title>Notification bubble with CSS3 keyframe animation - demo</title>
+    <title>HTML Generator Sample Page</title>
+
     <style>
-        .animating{
-            -webkit-animation: animate 1s cubic-bezier(0,1,1,0);
-            -moz-animation: animate 1s cubic-bezier(0,1,1,0);
-            -ms-animation: animate 1s cubic-bezier(0,1,1,0);
-            -o-animation: animate 1s cubic-bezier(0,1,1,0);
-            animation: animate 1s cubic-bezier(0,1,1,0);
+        table, td, th
+        {
+            border:1px solid green;
+            width: 52%;
+            height: 38px; margin-bottom: 18px;
         }
-
-        @-webkit-keyframes animate{
-            from {
-                -webkit-transform: scale(1);
-            }
-            to {
-                -webkit-transform: scale(1.7);
-            }
-        }
-
-        @-moz-keyframes animate{
-            from {
-                -moz-transform: scale(1);
-            }
-            to {
-                -moz-transform: scale(1.7);
-            }
-        }
-
-        @-ms-keyframes animate{
-            from {
-                -ms-transform: scale(1);
-            }
-            to {
-                -ms-transform: scale(1.7);
-            }
-        }
-
-        @-o-keyframes animate{
-            from {
-                -o-transform: scale(1);
-            }
-            to {
-                -o-transform: scale(1.7);
-            }
-        }
-
-        @keyframes animate{
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.7);
-            }
-        }
-
-            /* ------------------------------------------- */
-
-        body{
+        th
+        {
+            background: none repeat scroll 0% 0% rgb(93, 198, 139);
+            color:white;
             text-align: center;
         }
+        a{
+            text-decoration:none;
 
-        .menu{
-            margin: 50px auto 20px;
-            width: 104px;
-
-            padding: 0;
-            list-style: none;
         }
+        p.header{
+            margin: 0px 0px 19px 0px;
+            padding: 10px 0px 14px 99px;
+            background-color: rgb(59, 166, 233);
+            border-bottom: 1px none;
+            width: 261px;
+            color:white;
+            font: 12px;
 
-        .menu {
-            border: 1px solid #111;
-
-            -moz-border-radius: 6px;
-            -webkit-border-radius: 6px;
-            border-radius: 6px;
-            -moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
-            -webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
-            box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
-            float: left;
-            position: relative;
-            top: 25px;
-            -moz-box-shadow: 1px 0 0 #444;
         }
-
-
-
-
-
-        .menu {
-            zoom:1;
+        .content{
+            text-align: center;
+            border-bottom: 1px solid rgb(59, 166, 233);
         }
-
-
-        .menu a {
-            float: left;
-            padding: 12px 30px;
-            color: #bbb;
-            text-transform: uppercase;
-            font: bold 12px Arial, Helvetica;
-            text-decoration: none;
-        }
-
-        .menu a:hover {
-            color: #fafafa;
-        }
-
-
-
-        .menu .bubble
-        {
-            background: #e02424;
-            position: absolute;
-            right: 5px;
-            top: -5px;
-            padding: 2px 6px;
-            color: #fff;
-            font: bold .9em Tahoma, Arial, Helvetica;
-            -moz-border-radius: 3px;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-        }
-
-
-
-
-
-
         .messageBody{
-            display:none;
-            position:absolute;
-            top:50px;
-            border:1px ;cellpadding:1px ;cellspacing:1px ;
-            font-family: white;
-            background-color: rgb(59, 75, 155);
+            width: 263px;
+            height: 286px;
+            border: 1px solid rgb(59, 166, 233);
+
         }
-        .messageContent
-
-        {
-
-            position:absolute;
-            top:25px;
-            left:200px;
-            border:2px solid #a1a1a1;
-            padding:10px 20px;
-            background:#dddddd;
-            width:250px;
-
-            border-radius:25px;
+        #fullTextView,#replyMessage{
+            display: none;
+            margin: 0px 0px 0px 285px;
+            padding: 5px;
+            position: absolute;
+            width: 257px;
+            height: 130px;
+            background: none repeat scroll 0% 0% rgb(59, 166, 233);
+            border-radius: 10px;
+            color: white;
+            text-shadow: 1px 1px 1px rgb(49, 136, 191);
+            top: 181px;
         }
+        #replyMessage{
+            top: 148px;
+            margin: 0px 0px 0px 284px;
+            padding: 11px;
+            position: absolute;
+            width: 376px;
+            height: 285px;
 
+
+        }
+        .reply{
+            color: white;
+            position: absolute;
+            top: 107px;
+            left: 187px;
+        }
     </style>
+    <script type="text/javascript">
+        function showMessage(){
+            document.getElementById('fullTextView').style.display='block';
+            document.getElementById('replyMessage').style.display='none';
+        }
+        function showReply(){
+            var replyButton=document.getElementById('replyMessage');
+            var message=document.getElementById('fullTextView');
+            if(replyButton){
+                replyButton.style.display='block';
+                message.style.display='none';
+            }
+            else{
+                message.style.display='none';
+            }
+        }
 
-</head>
-<body>
+    </script>
+</head> <body>
 
-<div class="menu">
+<div>
 
-
-    Message
-    <span class="bubble">9</span>
-
-
-    <!--<li><a href="">home</a></li>  -->
-</div>
-<div class="messageBody">
     <!-- Codes by HTML.am -->
-    <div class="messageContent">
 
-        <p >
+    <h3>
+        Text Messages
+    </h3>
+    <div class="messageBody">
+        <p class="header">Messages</p>
+        <div class="content">
 
-            Name: <span id="jname"></span><br>
-            Age: <span id="jage"></span><br>
-            Address: <span id="jstreet"></span><br></span>
-        </p>
-        <p>
+            <a onclick="showMessage()" >
+                Subject :</a>
 
-        </p>
 
+        </div>
+        <div id="fullTextView">
+            Full message will be displayed here.
+            <a class="reply" onclick="showReply();">Reply</a>
+        </div>
+        <div id="replyMessage">
+            <h3>Write a Reply :</h3>
+            <p style="top: 46px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
+            <input type=text, placeholder=" Limit is 250 character."
+                   ng-model="response"
+                   maxlength="250"
+                   style="width: 281px;
+                    height: 134px;
+                    top: 35px;
+                    position: relative;
+                    left: 40px;
+    "
+                   wrap="true" >
+            </input>
+
+            <a class="calculate-button" href="#/home"
+               style="top: 221px; position: absolute; left: 100px; display: inline" ng-click="sendResponse()">Submit</a>
+        </div>
     </div>
 
 
 
+
 </div>
-
-<button id="decrement">Decrement notification</button>
-<button id="increment">Increment notification</button>
-<script>
-    var JSONObject = {
-        "name":"John Johnson",
-        "street":"Oslo West 16",
-        "age":33,
-        "phone":"555 1234567"};
-    document.getElementById("jname").innerHTML=JSONObject.name
-    document.getElementById("jage").innerHTML=JSONObject.age
-    document.getElementById("jstreet").innerHTML=JSONObject.street
-    document.getElementById("jphone").innerHTML=JSONObject.phone
-</script>
-
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">
-
-
-    $(".menu").on('click', function() {
-        $(".messageBody").fadeIn();
-
-    });
-    var counterValue = parseInt($('.bubble').html());
-    function removeAnimation(){
-        setTimeout(function() {
-            $('.bubble').removeClass('animating')
-        }, 1000);
-    }
-
-    $('#decrement').on('click',function(){
-        counterValue--;
-        $('.bubble').html(counterValue).addClass('animating');
-        removeAnimation();
-    })
-
-    $('#increment').on('click',function(){
-        counterValue++;
-        $('.bubble').html(counterValue).addClass('animating');
-        removeAnimation();
-    })
-</script>
-
-
 </body>
 </html>
+
