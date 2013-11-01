@@ -27,6 +27,17 @@ cbbApp.factory('participantService', function($http, $q, cbbConstants) {
     /**
      *  add the participant
      */
+
+    var loginStatus = "false";
+
+    participantServiceInstance.getLoginStatus = function() {
+        return loginStatus;
+    }
+
+    participantServiceInstance.setLoginStatus = function(loginStatusID) {
+        loginStatus = loginStatusID;
+    }
+
     participantServiceInstance.add = function(participant) {
         //Creating a deferred object
         var deferred = $q.defer();

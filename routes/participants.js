@@ -53,7 +53,11 @@ exports.addUser = function(req, res){
         var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
-            res.send("success");
+            queryString = "insert into inbound (email) values ('" + email + "')";
+            connection.query(queryString, function(err, rows, fields) {
+                if (err) throw err;
+                res.send("success");
+            });
         });
     }
 };

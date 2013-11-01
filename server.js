@@ -23,9 +23,9 @@ app.configure('development', function(){
 });
 
 //app.get('/', get.all);
-app.get('/:id/:pwd', get.one);
-app.get('/', getdata.one);
-app.post('/:firstname/:lastname/:email/:password', get.addUser);
+app.get('/loginSignup/:id/:pwd', get.one);
+app.get('/messages', getdata.one);
+app.post('/loginSignup/:firstname/:lastname/:email/:password', get.addUser);
 app.post('/:feedback', get.addFeedback);
 
 http.createServer(app).listen(app.get('port'), function(){

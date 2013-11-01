@@ -59,92 +59,15 @@
 
     <div class="input-group">
         <ul>
-            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'" ng-click="textMessageSetFlag(textMessage.ID)">{{ textMessage.subject }}<br>
+            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'" ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
+                <input type="text" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag"></input>
+                <button ng-show="textMessage.ID == textMessageFlag && textMessage.inflag" ng-click="submitMessage(textMessage.ID)">Submit Message</button>
+                <br ng-show="textMessage.ID == textMessageFlag" />
             </li>
         </ul>
 
-        <!--table class="list-entry">
 
-            <style type="text/css">
-                .errorClassSignUp{
-                    color: red;
-                }
-            </style>
-            <table>
-
-                <tr>
-                    <td>
-                        First name
-                    </td>
-                    <td>
-                        <input type="text"
-                               placeholder="Enter first name"
-                               ng-model="newParticipant.firstName">
-                        </input>
-                    </td>
-                    <td class="errorClassSignUp">
-                        {{ signUpErrorFirstName }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Last name
-                    </td>
-
-                    <td>
-                        <input type="text"
-                               placeholder="Enter last name"
-                               ng-model="newParticipant.lastName">
-                        </input>
-                    </td>
-                    <td class="errorClassSignUp">
-                        {{ signUpErrorLastName }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Email address
-                    </td>
-                    <td>
-                        <input type="text"
-                               placeholder="Enter email"
-                               ng-model="newParticipant.email">
-                        </input>
-                    </td>
-                    <td class="errorClassSignUp">
-                        {{ signUpErrorEmail }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Password
-                    </td>
-                    <td>
-                        <input type="password"
-                               placeholder="Enter password"
-                               ng-model="newParticipant.password">
-                        </input>
-                    </td>
-                    <td class="errorClassSignUp">
-                        {{ signUpErrorPassword }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Retype password
-                    </td>
-                    <td>
-                        <input type="password"
-                               placeholder="Confirm password"
-                               ng-model="newParticipant.passwordConfirm">
-                        </input>
-                    </td>
-                </tr>
-            </table>
-            <h6><p  class="errorClassSignUp">{{ signUpErrorNotification }}</p></h6>
-
-    </div-->
 
         <div>
             <a class="calculate-button"
