@@ -54,19 +54,15 @@
     <style type="text/css">
     .bubble
     {
-        background: #e02424;
-    <!-- position: absolute; -->
-    right: 5px;
-        top: -5px;
-        padding: 2px 6px;
-        color: #fff;
-        font: bold .9em Tahoma, Arial, Helvetica;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
+        color: rgb(255, 255, 255);
+        font: bold 0.9em Tahoma,Arial,Helvetica;
+        border-radius: 8px;
+        padding: 1px 4px;
+        background-color: red;
+        top: -0.5em;
 
     }
-
+</style>
 </head>
 
 <body>
@@ -161,7 +157,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/text">Text</a><span class="bubble">4</span>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
@@ -200,7 +196,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/text">Text</a><span class="bubble">4</span>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
