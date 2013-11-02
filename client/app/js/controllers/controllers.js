@@ -3049,21 +3049,6 @@ cbbApp.controller('stateController',
             }
         };
 
-        var signUpInit = function(emailID) {
-            window.alert(emailID);
-            $http.get('http://localhost:3000/loginSignup/' + emailID).
-                success(function(data, status, headers, config) {
-                    if(data == "true")
-                        return false;
-                    else
-                        return true;
-                }).
-                error(function(data, status, headers, config) {
-                    window.alert("Failure" + status);
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
-        };
 
 
         $scope.signupTry = function(){
@@ -3081,34 +3066,48 @@ cbbApp.controller('stateController',
             else if(!$scope.newParticipant.password) $scope.signUpErrorPassword = "Enter a password.";
             else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Passwords do not match. Correct them and try again.";
             else {
+                //window.alert("Entered");
                 var email = $scope.newParticipant.email.toUpperCase();
-                if(signUpInit(email)) {
-                    $http({method: 'POST',
-                        url: 'http://localhost:3000/loginSignup/' +
-                            $scope.newParticipant.firstName + '/' +
-                            $scope.newParticipant.lastName + '/' +
-                            email + '/' +
-                            $scope.newParticipant.password
+                //window.alert("After case");
+                /*$http.get('http://localhost:3000/loginSignup/' + emailID).
+                    success(function(data, status, headers, config) {
+                        if(data == "true")
+                            participantService.setLoginEmail("false");
+                        else
+                            participantService.setLoginEmail("true");
                     }).
-                        success(function(data, status, headers, config) {
-                            $scope.appsData = data;
-                            if(data == "success")
-                                window.alert("Success Signup");
-                            else
-                                $scope.signupErrorNotification = "Check the login information and try again."
-                        }).
-                        error(function(data, status, headers, config) {
-                            window.alert("Failure" + status);
-                            // called asynchronously if an error occurs
-                            // or server returns response with an error status.
-                        });
-                    /*$scope.getParticipants = function() {
-                     $scope.participantSvc.getParticipants().then(function(data) {
-                     $scope.participantsList = angular.fromJson(data);
-                     })
-                     }*/
-                }
-                else $scope.signUpErrorNotification = "Email ID already exists. Use a different Email.";
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                participantService.setLoginEmail(email);*/
+                $http({method: 'POST',
+                    url: 'http://localhost:3000/loginSignup/' +
+                        $scope.newParticipant.firstName + '/' +
+                        $scope.newParticipant.lastName + '/' +
+                        email + '/' +
+                        $scope.newParticipant.password
+                }).
+                    success(function(data, status, headers, config) {
+                        //window.alert("Success");
+                        $scope.appsData = data;
+                        if(data.status == "true")
+                            window.alert("Success Signup");
+                        else {
+                            window.alert("Email ID exists. Use a different Email ID.");
+                        }
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                /*$scope.getParticipants = function() {
+                 $scope.participantSvc.getParticipants().then(function(data) {
+                 $scope.participantsList = angular.fromJson(data);
+                 })
+                 }*/
             }
         };
 
