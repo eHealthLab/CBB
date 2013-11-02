@@ -52,7 +52,7 @@
 
     </script>
     <style type="text/css">
-    .bubble
+    sup
     {
         color: rgb(255, 255, 255);
         font: bold 0.9em Tahoma,Arial,Helvetica;
@@ -60,8 +60,11 @@
         padding: 1px 4px;
         background-color: red;
         top: -0.5em;
+        position: relative;
+        vertical-align: baseline;
 
     }
+
 </style>
 </head>
 
@@ -157,7 +160,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a><span class="bubble">4</span>
+                <a href="#/text">Text</a><sup>4</sup>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
@@ -196,7 +199,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a><span class="bubble">4</span>
+                <a href="#/text">Text</a><sup>4</sup>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
