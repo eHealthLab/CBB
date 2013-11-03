@@ -146,6 +146,11 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
             {templateUrl: 'partials/feedbackView.html', controller: 'feedbackController' }
 
         )
+            .when('/text',
+            {templateUrl: 'partials/textView.html', controller: 'responseController' }
+
+        )
+
             .when('/contactInfo',
             {templateUrl: 'partials/contactInfoView.html', controller: 'contactInfoController' }
 

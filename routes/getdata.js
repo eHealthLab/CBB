@@ -14,8 +14,9 @@ exports.all = function(req, res){
 };
 
 exports.one = function(req, res){
+    var email = req.params.email;
     if (connection) {
-        var queryString = "select * from outbound";
+        var queryString = "select * from outbound, inbound a where a.email = '" + email + "'";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             console.log(rows[0].message);
@@ -24,44 +25,19 @@ exports.one = function(req, res){
     }
 };
 
-/*exports.checkEmail = function(req, res){
- var email = req.params.email;
- if (connection) {
- var queryString = "select * from participants where email = ?";
- connection.query(queryString, [email], function(err, rows, fields) {
- if (err) throw err;
- if(rows[0].email == email)
- res.send("true");
- else
- res.send("false");
- });
- }
- }*/
-
-exports.addUser = function(req, res){
-    var firstname = req.params.firstname;
-    var lastname = req.params.lastname;
+exports.addMessage = function(req, res) {
+    var message = req.params.message;
     var email = req.params.email;
-    var password = req.params.password;
     if(connection) {
-        var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
+        var queryString = "update inbound set inb3 = '" + message + "'  where email = '" + email + "'";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
-            res.send("success");
+            queryString = "select * from outbound, inbound a where a.email = '" + email + "'";
+            connection.query(queryString, function(err, rows, fields) {
+                if (err) throw err;
+                console.log(rows[0].message);
+                res.send(rows);
+            });
         });
     }
 };
-
-exports.addFeedback = function(req, res){
-    var feedback = req.params.feedback;
-    if(connection) {
-        var queryString = "insert into feedback values('" + feedback + "')";
-        connection.query(queryString, function(err, rows, fields) {
-            if (err) throw err;
-            res.send("success");
-        });
-    }
-};
-/**
- * Created by hemanth on 10/31/13.
- */

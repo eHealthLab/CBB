@@ -51,8 +51,21 @@
         });
 
     </script>
+    <style type="text/css">
+    sup
+    {
+        color: rgb(255, 255, 255);
+        font: bold 0.9em Tahoma,Arial,Helvetica;
+        border-radius: 8px;
+        padding: 1px 4px;
+        background-color: red;
+        top: -0.5em;
+        position: relative;
+        vertical-align: baseline;
 
+    }
 
+</style>
 </head>
 
 <body>
@@ -147,7 +160,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/text">Text</a><sup>4</sup>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
@@ -186,7 +199,7 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/text">Text</a><sup>4</sup>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>

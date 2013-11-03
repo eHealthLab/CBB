@@ -24,7 +24,12 @@
     Please enter the following information to login.
 </p>
 <div class="input-group">
-    <table class="list-entry">
+    <table >
+        <style type="text/css">
+            .errorClassSignUp{
+                color: red;
+            }
+        </style>
         <tr>
             <td>
                 Email
@@ -34,6 +39,9 @@
                        placeholder="Enter email"
                        ng-model="newParticipant.email">
                 </input>
+            </td>
+            <td class="errorClassSignUp">
+                {{ loginErrorEmail }}
             </td>
         </tr>
         <tr>
@@ -45,6 +53,9 @@
                        placeholder="Enter password"
                        ng-model="newParticipant.password">
                 </input>
+            </td>
+            <td class="errorClassSignUp">
+                {{ loginErrorPassword }}
             </td>
         </tr>
     </table>

@@ -23,8 +23,10 @@ app.configure('development', function(){
 });
 
 //app.get('/', get.all);
+app.get('/loginSignup/:id', get.oneEmail)
 app.get('/loginSignup/:id/:pwd', get.one);
-app.get('/messages', getdata.one);
+app.get('/messages/:email', getdata.one);
+app.post('/messages/:message/:email', getdata.addMessage);
 app.post('/loginSignup/:firstname/:lastname/:email/:password', get.addUser);
 app.post('/:feedback', get.addFeedback);
 

@@ -3010,53 +3010,78 @@ cbbApp.controller('stateController',
                 email: undefined,
                 password: undefined,
                 passwordConfirm: undefined
-            }
+            };
 
             //$scope.participantList = $scope.participantSvc.getAll();
         }
 
         $scope.loginTry = function(){
-            //window.alert("Failure");
-            //window.alert($scope.newParticipant.password);
-            var email = $scope.newParticipant.email.toUpperCase();
-            $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
-                success(function(data, status, headers, config) {
-                    $scope.appsData = data;
-                    if($scope.appsData == "true") {
-                        window.alert("Success");
-                        participantService.setLoginStatus(email);
-                        //window.alert(participantService.getLoginStatus());
-                    }
-                    else
-                        $scope.loginErrorNotification = "Check the login information and try again."
-                }).
-                error(function(data, status, headers, config) {
-                    window.alert("Failure" + status);
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
-            /*$scope.getParticipants = function() {
-             $scope.participantSvc.getParticipants().then(function(data) {
-             $scope.participantsList = angular.fromJson(data);
-             })
-             }*/
+
+            $scope.loginErrorEmail = undefined;
+            $scope.loginErrorPassword = undefined;
+            $scope.loginErrorNotification = undefined;
+
+            if(!$scope.newParticipant.email) $scope.loginErrorEmail = "Enter your Email.";
+            else if(!$scope.newParticipant.password) $scope.loginErrorPassword = "Enter your password.";
+            else {
+                var email = $scope.newParticipant.email.toUpperCase();
+                $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
+                    success(function(data, status, headers, config) {
+                        $scope.appsData = data;
+                        if($scope.appsData == "true") {
+                            window.alert("Success");
+                            participantService.setLoginStatus(email);
+                            //window.alert(participantService.getLoginStatus());
+                        }
+                        else
+                            $scope.loginErrorNotification = "Check the login information and try again."
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                /*$scope.getParticipants = function() {
+                 $scope.participantSvc.getParticipants().then(function(data) {
+                 $scope.participantsList = angular.fromJson(data);
+                 })
+                 }*/
+            }
         };
+
 
 
         $scope.signupTry = function(){
             //window.alert("Failure");
 
-            var email = $scope.newParticipant.email.toUpperCase();
-            window.alert("Entered");
-            if($scope.newParticipant.firstName == "") {
-                //window.alert("First Name");
-                $scope.signUpErrorFirstName = "Enter your first name.";
-            }
-            /*else if(!$scope.newParticipant.lastName) $scope.signUpErrorLastName = "Enter your last name.";
-            else if(!email) $scope.signUpErrorEmail = "Enter a valid Email.";
+            $scope.signUpErrorFirstName = undefined;
+            $scope.signUpErrorLastName = undefined;
+            $scope.signUpErrorEmail = undefined;
+            $scope.signUpErrorPassword = undefined;
+            $scope.signUpErrorNotification = undefined;
+
+            if(!$scope.newParticipant.firstName) $scope.signUpErrorFirstName = "Enter your first name.";
+            else if(!$scope.newParticipant.lastName) $scope.signUpErrorLastName = "Enter your last name.";
+            else if(!$scope.newParticipant.email) $scope.signUpErrorEmail = "Enter a valid Email.";
             else if(!$scope.newParticipant.password) $scope.signUpErrorPassword = "Enter a password.";
-            else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Passwords do not match. Correct them and try again.";*/
+            else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Passwords do not match. Correct them and try again.";
             else {
+                //window.alert("Entered");
+                var email = $scope.newParticipant.email.toUpperCase();
+                //window.alert("After case");
+                /*$http.get('http://localhost:3000/loginSignup/' + emailID).
+                    success(function(data, status, headers, config) {
+                        if(data == "true")
+                            participantService.setLoginEmail("false");
+                        else
+                            participantService.setLoginEmail("true");
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                participantService.setLoginEmail(email);*/
                 $http({method: 'POST',
                     url: 'http://localhost:3000/loginSignup/' +
                         $scope.newParticipant.firstName + '/' +
@@ -3065,11 +3090,13 @@ cbbApp.controller('stateController',
                         $scope.newParticipant.password
                 }).
                     success(function(data, status, headers, config) {
+                        //window.alert("Success");
                         $scope.appsData = data;
-                        if(data == "success")
+                        if(data.status == "true")
                             window.alert("Success Signup");
-                        else
-                            $scope.signupErrorNotification = "Check the login information and try again."
+                        else {
+                            window.alert("Email ID exists. Use a different Email ID.");
+                        }
                     }).
                     error(function(data, status, headers, config) {
                         window.alert("Failure" + status);
@@ -3098,6 +3125,14 @@ cbbApp.controller('stateController',
 
     .controller('contactInfoController', function($scope, $http, participantService) {
 
+        init();
+
+        function init() {
+            $scope.newMessage1 = {
+                message: undefined
+            };
+        }
+
         $scope.getMessages = function(){
             //window.alert("Failure");
             //window.alert($scope.newParticipant.password);
@@ -3106,7 +3141,7 @@ cbbApp.controller('stateController',
             }
             else {
                 $scope.textMessageFlag = 0;
-                $http.get('http://localhost:3000/messages/').
+                $http.get('http://localhost:3000/messages/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
                         window.alert("Success");
                         $scope.messageArray = data;
@@ -3129,7 +3164,15 @@ cbbApp.controller('stateController',
         };
 
         $scope.submitMessage = function(messageID){
-
+            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus()).
+                success(function(data, status, headers, config) {
+                    window.alert("hi" + $scope.newMessage1.message);
+                    window.alert("Message Added");
+                    $scope.messageArray = data;
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure " + status);
+                });
         };
     })
 
@@ -3172,6 +3215,47 @@ cbbApp.controller('stateController',
             }
         };
 
+
+    })
+/**
+ * Controller for the list of consultants
+ */
+
+    .controller('responseController',
+    function($scope, $http, participantService) {
+
+        init();
+        function init() {
+            $scope.participantSvc = participantService;
+            $scope.response = undefined;
+            //$scope.participantList = $scope.participantSvc.getAll();
+        }
+
+        /**
+         * Add a new participant and update the database
+         */
+        $scope.sendResponse = function() {
+            window.alert("inside response function" + $scope.response);
+            if ($scope.response != undefined) {
+
+                $http({method: 'POST',
+                    url: 'http://localhost:3000/' +
+                        $scope.response
+                }).
+                    success(function(data, status, headers, config) {
+                        $scope.appsData = data;
+                        if(data == "success")
+                            window.alert("Success inserting response");
+                        else
+                            window.alert("Failure inserting response");
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+            }
+        };
 
     })
 
