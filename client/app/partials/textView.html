@@ -22,47 +22,21 @@
 <!--<div ng-show="glimmpseConstants.debug == true">{{studyDesign.alphaList}}</div>-->
 
 
-<html>
-<head>
-    <title>HTML Generator Sample Page</title>
+<div>
 
     <style>
-        table, td, th
-        {
-            border:1px solid green;
-            width: 52%;
-            height: 38px; margin-bottom: 18px;
-        }
-        th
-        {
-            background: none repeat scroll 0% 0% rgb(93, 198, 139);
-            color:white;
-            text-align: center;
-        }
-        a{
-            text-decoration:none;
 
-        }
-        p.header{
-            margin: 0px 0px 19px 0px;
-            padding: 10px 0px 14px 99px;
-            background-color: rgb(59, 166, 233);
-            border-bottom: 1px none;
-            width: 261px;
-            color:white;
-            font: 12px;
 
+        .messageSubject{
+            width:195px;
+            padding: 8px 35px 8px 14px;
+            margin-bottom: 20px;
+            background-color: rgb(245, 245, 245);
+            border: 1px solid rgb(245, 245, 245);
+            border-radius: 4px;
+            list-style: none outside none;
         }
-        .content{
-            text-align: center;
-            border-bottom: 1px solid rgb(59, 166, 233);
-        }
-        .messageBody{
-            width: 263px;
-            height: 286px;
-            border: 1px solid rgb(59, 166, 233);
 
-        }
         #fullTextView,#replyMessage{
             display: none;
             margin: 0px 0px 0px 285px;
@@ -70,11 +44,9 @@
             position: absolute;
             width: 257px;
             height: 130px;
-            background: none repeat scroll 0% 0% rgb(59, 166, 233);
+            background-color:#f5f5f5 ;
             border-radius: 10px;
-            color: white;
-            text-shadow: 1px 1px 1px rgb(49, 136, 191);
-            top: 181px;
+            top: 147px;
         }
         #replyMessage{
             top: 148px;
@@ -83,15 +55,8 @@
             position: absolute;
             width: 376px;
             height: 285px;
-
-
         }
-        .reply{
-            color: white;
-            position: absolute;
-            top: 107px;
-            left: 187px;
-        }
+
     </style>
     <script type="text/javascript">
         function showMessage(){
@@ -111,52 +76,73 @@
         }
 
     </script>
-</head> <body>
-
-<div>
-
-    <!-- Codes by HTML.am -->
-
-    <h3>
-        Text Messages
-    </h3>
-    <div class="messageBody">
-        <p class="header">Messages</p>
-        <div class="content">
-
-            <a onclick="showMessage()" >
-                Subject :</a>
 
 
+    <div >
+
+        <!-- Codes by HTML.am -->
+
+        <h3>
+            Text Messages
+        </h3>
+
+        <ul class="messageSubject">
+            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'" ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
+                <div>
+                    <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
+                    <span>
+                        <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb3">{{ textMessage.inb3 }}</p>
+                        <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ messageArray[textMessage.nextmessage].message }}</p>
+                        <input type="text" ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3"></input>
+                        <button ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3" ng-click="submitMessage(textMessage.ID)">Submit Message</button>
+                    </span>
+                    <br ng-show="textMessage.ID == textMessageFlag" />
+                </div>
+            </li>
+        </ul>
+
+
+
+        <div>
+            <a class="calculate-button"
+               ng-click="getMessages()">Refresh</a>
         </div>
-        <div id="fullTextView">
-            Full message will be displayed here.
-            <a class="reply" onclick="showReply();">Reply</a>
-        </div>
-        <div id="replyMessage">
-            <h3>Write a Reply :</h3>
-            <p style="top: 46px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
-            <input type=text, placeholder=" Limit is 250 character."
-                   ng-model="response"
-                   maxlength="250"
-                   style="width: 281px;
-                    height: 134px;
-                    top: 35px;
-                    position: relative;
-                    left: 40px;
-    "
-                   wrap="true" >
-            </input>
 
-            <a class="calculate-button" href="#/home"
-               style="top: 221px; position: absolute; left: 100px; display: inline" ng-click="sendResponse()">Submit</a>
-        </div>
+        <ul>
+
+            <li class="messageSubject">
+                <a onclick="showMessage()" >
+                    Subject :</a>
+
+            </li>
+        </ul>
+
+
+
     </div>
+    <div id="fullTextView">
+        <p>Full message will be displayed here.</p>
+        <a class="calculate-button" onclick="showReply();">Reply</a>
+    </div>
+    <div id="replyMessage">
+        <h3>Write a Reply :</h3>
+        <p style="top: 46px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
+        <input type=text, placeholder=" Limit is 250 character."
+               ng-model="response"
+               maxlength="250"
+               style="width: 281px;
+                        height: 134px;
+                        top: 35px;
+                        position: relative;
+                        left: 40px;
+        "
+               wrap="true" >
+        </input>
 
-
-
-
+        <a class="calculate-button" href="#/home"
+           style="top: 221px; position: absolute; left: 100px; display: inline" ng-click="sendResponse()">Submit</a>
+    </div>
 </div>
-</body>
-</html>
+
+
 
