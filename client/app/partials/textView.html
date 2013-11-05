@@ -28,8 +28,8 @@
 
 
         .messageSubject{
-            width:195px;
-            padding: 8px 35px 8px 14px;
+            width: 234px;
+            padding: 8px 35px 71px 14px;
             margin-bottom: 20px;
             background-color: rgb(245, 245, 245);
             border: 1px solid rgb(245, 245, 245);
@@ -37,45 +37,23 @@
             list-style: none outside none;
         }
 
-        .fullTextView,#replyMessage{
-            display: none;
+        .replyButton{
             margin: 0px 0px 0px 285px;
-            padding: 5px;
+            padding: 97px 42px 61px 35px;
             position: absolute;
-            width: 257px;
+            width: 277px;
             height: 130px;
-            background-color:#f5f5f5 ;
+            background-color: #f5f5f5;
             border-radius: 10px;
-            top: 147px;
+            top: 86px;
         }
-        #replyMessage{
-            top: 148px;
-            margin: 0px 0px 0px 284px;
-            padding: 11px;
-            position: absolute;
-            width: 376px;
-            height: 285px;
-        }
+       .calculate-button{
+           margin-left: 183px;
+           line-height: 22px;
+           margin-top: 9px;
+       }
 
     </style>
-    <script type="text/javascript">
-        function showMessage(){
-            document.getElementById('fullTextView').style.display='block';
-            document.getElementById('replyMessage').style.display='none';
-        }
-        function showReply(){
-            var replyButton=document.getElementById('replyMessage');
-            var message=document.getElementById('fullTextView');
-            if(replyButton){
-                replyButton.style.display='block';
-                message.style.display='none';
-            }
-            else{
-                message.style.display='none';
-            }
-        }
-
-    </script>
 
 
     <div >
@@ -94,45 +72,30 @@
             <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
                 ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <div>
-                    <p ng-class="fullTextView" ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
-                    <span>
+                    <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
+                    <div>
                         <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb3">{{ textMessage.inb3 }}</p>
                         <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ messageArray[textMessage.nextmessage].message }}</p>
-                        <input type="text" ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3"></input>
-                        <button ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3" ng-click="submitMessage(textMessage.ID)">Submit Message</button>
-                    </span>
-                    <br ng-show="textMessage.ID == textMessageFlag" />
+                    <div class="replyButton">
+                        <p style="top: 14px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
+                        <input type="text"  placeholder=" Limit is 250 character."
+                        maxlength="250"
+                         style="width: 281px;
+                        height: 134px;
+                        left: 310px; " wrap="true"
+                        ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3"></input>
+                        <button class="calculate-button"
+                                ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3" ng-click="submitMessage(textMessage.ID)">Submit</button>
+                    </div>
+               </div>
+                <br ng-show="textMessage.ID == textMessageFlag" />
                 </div>
             </li>
         </ul>
 
-
-
-
-
-
-
-
     </div>
 
-    <div id="replyMessage">
-        <h3>Write a Reply :</h3>
-        <p style="top: 46px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
-        <input type=text, placeholder=" Limit is 250 character."
-               ng-model="response"
-               maxlength="250"
-               style="width: 281px;
-                        height: 134px;
-                        top: 35px;
-                        position: relative;
-                        left: 40px;
-        "
-               wrap="true" >
-        </input>
 
-        <a class="calculate-button" href="#/home"
-           style="top: 221px; position: absolute; left: 100px; display: inline" ng-click="sendResponse()">Submit</a>
-    </div>
 </div>
 
 
