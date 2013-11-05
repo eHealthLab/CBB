@@ -37,7 +37,7 @@
             list-style: none outside none;
         }
 
-        #fullTextView,#replyMessage{
+        .fullTextView,#replyMessage{
             display: none;
             margin: 0px 0px 0px 285px;
             padding: 5px;
@@ -85,11 +85,16 @@
         <h3>
             Text Messages
         </h3>
+        <div>
+            <a
+               ng-click="getMessages()">Click here to view messages</a>
+        </div>
 
         <ul class="messageSubject">
-            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'" ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
+            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
+                ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <div>
-                    <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
+                    <p ng-class="fullTextView" ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
                     <span>
                         <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb3">{{ textMessage.inb3 }}</p>
                         <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ messageArray[textMessage.nextmessage].message }}</p>
@@ -103,27 +108,13 @@
 
 
 
-        <div>
-            <a class="calculate-button"
-               ng-click="getMessages()">Refresh</a>
-        </div>
 
-        <ul>
 
-            <li class="messageSubject">
-                <a onclick="showMessage()" >
-                    Subject :</a>
-
-            </li>
-        </ul>
 
 
 
     </div>
-    <div id="fullTextView">
-        <p>Full message will be displayed here.</p>
-        <a class="calculate-button" onclick="showReply();">Reply</a>
-    </div>
+
     <div id="replyMessage">
         <h3>Write a Reply :</h3>
         <p style="top: 46px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
