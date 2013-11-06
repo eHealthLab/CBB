@@ -29,10 +29,9 @@
 
         .messageSubject{
             width: 234px;
-            padding: 8px 35px 71px 14px;
             margin-bottom: 20px;
             background-color: rgb(245, 245, 245);
-            border: 1px solid rgb(245, 245, 245);
+            margin-top: 34px;
             border-radius: 4px;
             list-style: none outside none;
         }
@@ -56,7 +55,6 @@
 
     </style>
 
-
     <div >
 
         <!-- Codes by HTML.am -->
@@ -66,11 +64,11 @@
         </h3>
         <div>
             <a
-               ng-click="getMessages()">Click here to view messages</a>
+               ng-click="getMessages()" >Click here to view messages</a>
         </div>
 
         <ul class="messageSubject">
-            <li ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
+            <li style="padding-bottom: 10px;" ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
                 ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <div>
                     <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
@@ -86,7 +84,7 @@
                         left: 310px; " wrap="true"
                         ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3"></input>
                         <button class="calculate-button"
-                                ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3" ng-click="submitMessage(textMessage.ID)">Submit</button>
+                                ng-click="submitMessage(textMessage.ID)">Submit</button>
                     </div>
                </div>
                 <br ng-show="textMessage.ID == textMessageFlag" />
