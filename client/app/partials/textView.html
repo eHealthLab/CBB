@@ -28,14 +28,21 @@
 
 
         .messageSubject{
+
             width: 234px;
             margin-bottom: 20px;
-            background-color: rgb(245, 245, 245);
             margin-top: 34px;
-            border-radius: 4px;
             list-style: none outside none;
         }
 
+        .listStyle{
+            margin-bottom: 26px;
+            color: #00529B;
+            background-color: #BDE5F8;
+            border: 1px solid;
+            border-radius:.5em;
+            padding: 10px;
+        }
         .replyButton{
             display: none;
             margin: 0px 0px 0px 261px;
@@ -68,7 +75,7 @@
         </div>
 
         <ul class="messageSubject">
-            <li style="padding-bottom: 10px;" ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
+            <li class="listStyle" ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
                 ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
                 <div>
                     <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
