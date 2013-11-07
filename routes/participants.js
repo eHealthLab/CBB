@@ -22,7 +22,7 @@ exports.one = function(req, res){
             if (err) throw err;
             if(rows[0] != undefined){
                 if(rows[0].email == id && rows[0].password == pwd)
-                    res.send("true");
+                    res.send(rows);
                 else
                     res.send("false");
             }
@@ -53,7 +53,7 @@ exports.oneEmail = function(req, res) {
             if (err) throw err;
             if(rows[0] != undefined){
                 if(rows[0].email == id)
-                    res.send("true");
+                    res.send(rows[0].ID);
                 else
                     res.send("false");
             }
@@ -80,16 +80,32 @@ exports.addUser = function(req, res){
                 res.send(data);
             } else {
                 console.log("Email doesn't exist");
-                var queryString = "insert into participants values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
+                var queryString = "insert into participants (firstname, lastname, email, password) values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
                 connection.query(queryString, function(err, rows, fields) {
                     if (err) throw err;
-                    queryString = "insert into inbound (email) values ('" + email + "')";
-                    connection.query(queryString, function(err, rows, fields) {
-                        if (err) throw err;
-                        var data = {
-                            status: "true"
-                        };
-                        res.send(data);
+                    queryStringGet = "select * from participants where email = ?";
+                    connection.query(queryStringGet, [email], function(err, rows, fields) {
+                        if(err) throw err;
+                        var id = rows[0].ID
+                        queryString = "create table user" + id + " (ID int auto_increment, inb varchar(30), outb boolean, foreign key(ID) references outbound(ID), primary key(ID));";
+                        connection.query(queryString, function(err, rows, fields) {
+                            if (err) throw err;
+                            queryString = "select max(ID) as maxID from outbound;"
+                            connection.query(queryString, function(err, rows, fields) {
+                                if (err) throw err;
+                                queryString = "insert into user" + id + "(outb) values (0)";
+                                for (i=0; i<rows[0].maxID - 1; i++)
+                                    queryString = queryString + ", (0)";
+                                console.log(queryString);
+                                connection.query(queryString, function(err, rows, fields) {
+                                    if (err) throw err;
+                                    var data = {
+                                        status: "true"
+                                    };
+                                    res.send(data);
+                                });
+                            });
+                        });
                     });
                 });
             }

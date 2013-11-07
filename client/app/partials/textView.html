@@ -70,10 +70,14 @@
             top: 72px;
         }
 
+        .messageRead {
+            font-weight: bold;
+        }
+
 
     </style>
 
-    <div >
+    <div>
 
         <!-- Codes by HTML.am -->
 
@@ -86,26 +90,31 @@
         </div>
 
         <ul class="messageSubject">
-            <li class="listStyle" ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
-                ng-click="textMessageSetFlag(textMessage.ID)" ng-show="textMessage.directmessage">{{ textMessage.subject }}
+            <li class="listStyle ng-class: { messageRead: !textMessage.outb };"
+                ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
+                ng-click="textMessageSetFlag(textMessage)"
+                ng-show="textMessage.directmessage">
+                    {{ textMessage.subject }}
+
                 <div>
                     <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
-                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb3">{{ textMessage.inb3 }}</p>
-                    <div ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3">
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb">{{ textMessage.inb }}</p>
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb">{{ messageArray[textMessage.nextmessage].message }}</p>
+                    <div ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
 
-                        <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb3">{{ messageArray[textMessage.nextmessage].message }}</p>
-                        <div class="replyButton" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3">
+
+                        <div class="replyButton" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
                             <p style="top: 14px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
                             <input type="text"  placeholder=" Limit is 250 character."
                                    maxlength="250"
                                    class="textBoxStyle" wrap="true"
-                                   ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb3">
+                                   ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
                             <button class="calculate-button"
                                     ng-click="submitMessage(textMessage.ID)" ng-hide="">Submit</button>
 
                         </div>
-               </div>
-                <br ng-show="textMessage.ID == textMessageFlag" />
+                    </div>
+                    <br ng-show="textMessage.ID == textMessageFlag" />
                 </div>
             </li>
 

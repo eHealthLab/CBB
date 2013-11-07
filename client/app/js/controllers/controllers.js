@@ -3028,9 +3028,9 @@ cbbApp.controller('stateController',
                 $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
                     success(function(data, status, headers, config) {
                         $scope.appsData = data;
-                        if($scope.appsData == "true") {
+                        if($scope.appsData != "false") {
                             window.alert("Success");
-                            participantService.setLoginStatus(email);
+                            participantService.setLoginStatus($scope.appsData[0].ID);
                             //window.alert(participantService.getLoginStatus());
                         }
                         else
@@ -3131,6 +3131,7 @@ cbbApp.controller('stateController',
             $scope.newMessage1 = {
                 message: undefined
             };
+            $scope.messageRead = true;
         }
 
         $scope.getMessages = function(){
@@ -3159,14 +3160,25 @@ cbbApp.controller('stateController',
             }
         };
 
-        $scope.textMessageSetFlag = function(textMessageID){
-            $scope.textMessageFlag = textMessageID;
+        $scope.textMessageSetFlag = function(textMessage){
+            $scope.textMessageFlag = textMessage.ID;
+            $http.post('http://localhost:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
+                success(function(data, status, headers, config) {
+                    //window.alert("hi" + $scope.newMessage1.message);
+                    //window.alert("Message Added");
+                    $scope.messageArray[textMessage.ID-1].outb = true;
+                    //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure " + status);
+                });
+            //$scope.messageRead = !$scope.messageRead;
         };
 
         $scope.submitMessage = function(messageID){
-            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus()).
+            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
                 success(function(data, status, headers, config) {
-                    window.alert("hi" + $scope.newMessage1.message);
+                    //window.alert("hi" + $scope.newMessage1.message);
                     window.alert("Message Added");
                     $scope.messageArray = data;
                 }).

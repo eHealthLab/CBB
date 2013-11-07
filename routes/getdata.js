@@ -2,21 +2,12 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({ host: 'localhost', user: 'munjala',
     password: 'artika12', database: 'cbbdb'});
 
-exports.all = function(req, res){
-    if (connection) {
-        connection.query('select * from participants', function(err, rows, fields) {
-            if (err) throw err;
-            res.contentType('application/json');
-            res.write(JSON.stringify(rows));
-            res.end();
-        });
-    }
-};
 
 exports.one = function(req, res){
-    var email = req.params.email;
+    var Id = req.params.id;
     if (connection) {
-        var queryString = "select * from outbound, inbound a where a.email = '" + email + "'";
+        var queryString = "select * from outbound a, user" + Id + " b where a.ID = b.ID";
+        console.log(queryString);
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             console.log(rows[0].message);
@@ -27,12 +18,31 @@ exports.one = function(req, res){
 
 exports.addMessage = function(req, res) {
     var message = req.params.message;
-    var email = req.params.email;
+    var id = req.params.email;
+    var messageID = req.params.messageID;
     if(connection) {
-        var queryString = "update inbound set inb3 = '" + message + "'  where email = '" + email + "'";
+        var queryString = "update user" + id + " set inb = '" + message + "'  where ID = '" + messageID + "'";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
-            queryString = "select * from outbound, inbound a where a.email = '" + email + "'";
+            queryString = "select * from outbound a, user" + id + " b where a.ID = b.ID";
+            connection.query(queryString, function(err, rows, fields) {
+                if (err) throw err;
+                console.log(rows[0].message);
+                res.send(rows);
+            });
+        });
+    }
+};
+
+exports.setMessageAsRead = function (req, res) {
+    var id = req.params.id;
+    var messageID = req.params.messageID;
+    if(connection) {
+        var queryString = "update user" + id + " set outb = true where ID = " + messageID;
+        console.log(queryString);
+        connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            queryString = "select * from outbound a, user" + id + " b where a.ID = b.ID";
             connection.query(queryString, function(err, rows, fields) {
                 if (err) throw err;
                 console.log(rows[0].message);
