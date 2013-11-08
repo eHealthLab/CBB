@@ -116,6 +116,8 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
         * Main route provider for the study design tab
          */
         $routeProvider
+
+
             .when('/login',
             {templateUrl: 'partials/loginView.html', controller: 'participantsController' }
         )

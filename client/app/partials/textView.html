@@ -37,7 +37,7 @@
         }
 
         .listStyle{
-            font-weight:bold;
+            //font-weight:bold;
             color: #00529B;
             background: rgb(255, 255, 255);
 
@@ -105,8 +105,8 @@
 
                 <div style=" font-weight:normal;">
                     <p style="color: #4F8A10;background-color: #DFF2BF;" ng-show="textMessage.ID == textMessageFlag">CBB: {{ textMessage.message }}</p>
-                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb"> Your Reply: {{ textMessage.inb }}</p>
-                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb">{{ messageArray[textMessage.nextmessage].message }}</p>
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb">Your Reply: {{ textMessage.inb }}</p>
+                    <p style="color: #4F8A10;background-color: #DFF2BF;" ng-show="textMessage.ID == textMessageFlag && textMessage.inb">CBB: {{ messageArray[textMessage.nextmessage].message }}</p>
                     <div ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
 
 

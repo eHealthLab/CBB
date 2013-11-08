@@ -6,7 +6,7 @@ var connection = mysql.createConnection({ host: 'localhost', user: 'munjala',
 exports.one = function(req, res){
     var Id = req.params.id;
     if (connection) {
-        var queryString = "select * from outbound a, user" + Id + " b where a.ID = b.ID";
+        var queryString = "select * from outbound a, user" + Id + " b where a.ID = b.ID AND releasedate < now() ";
         console.log(queryString);
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;

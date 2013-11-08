@@ -3132,6 +3132,7 @@ cbbApp.controller('stateController',
                 message: undefined
             };
             $scope.messageRead = true;
+            $scope.unreadMessageCount = 0;
         }
 
         $scope.getMessages = function(){
@@ -3146,6 +3147,9 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         window.alert("Success");
                         $scope.messageArray = data;
+                        for(var s in $scope.messageArray) {
+                            if(!s.outb) $scope.unreadMessageCount += 1;
+                        }
                     }).
                     error(function(data, status, headers, config) {
                         window.alert("Failure" + status);
@@ -3167,6 +3171,9 @@ cbbApp.controller('stateController',
                     //window.alert("hi" + $scope.newMessage1.message);
                     //window.alert("Message Added");
                     $scope.messageArray[textMessage.ID-1].outb = true;
+                    for(var s in $scope.messageArray) {
+                        if(!s.outb) $scope.unreadMessageCount += 1;
+                    }
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).
                 error(function(data, status, headers, config) {
