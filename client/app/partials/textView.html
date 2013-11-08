@@ -22,7 +22,7 @@
 <!--<div ng-show="glimmpseConstants.debug == true">{{studyDesign.alphaList}}</div>-->
 
 
-<div>
+<div ng-init="getMessages()">
 
     <style>
 
@@ -91,10 +91,10 @@
         <h3>
             Text Messages
         </h3>
-        <div style="margin-bottom: 35px;">
+        <!--div style="margin-bottom: 35px;">
             <a
                ng-click="getMessages()" >Click here to view messages</a>
-        </div>
+        </div-->
 <table>
         <tr class="messageSubject">
             <div class="listStyle ng-class: { messageRead: !textMessage.outb };"

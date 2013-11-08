@@ -3127,12 +3127,15 @@ cbbApp.controller('stateController',
 
         init();
 
+
+
         function init() {
             $scope.newMessage1 = {
                 message: undefined
             };
             $scope.messageRead = true;
             $scope.unreadMessageCount = 0;
+            //$scope.getMessages();
         }
 
         $scope.getMessages = function(){
