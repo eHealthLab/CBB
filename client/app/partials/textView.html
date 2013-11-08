@@ -33,14 +33,16 @@
             margin-bottom: 20px;
             margin-top: 34px;
             list-style: none outside none;
+            background-color: #BDE5F8;
         }
 
         .listStyle{
-            margin-bottom: 26px;
+            font-weight:bold;
             color: #00529B;
-            background-color: #BDE5F8;
+            background: rgb(255, 255, 255);
+
             border: 1px solid;
-            border-radius:.5em;
+            width:253px;
             padding: 10px;
         }
         .replyButton{
@@ -73,7 +75,12 @@
         .messageRead {
             font-weight: bold;
         }
+        p{
+            border-radius: .5em;
+            color: #00529B; background-color: #BDE5F8;
 
+
+        }
 
     </style>
 
@@ -84,21 +91,21 @@
         <h3>
             Text Messages
         </h3>
-        <div>
+        <div style="margin-bottom: 35px;">
             <a
                ng-click="getMessages()" >Click here to view messages</a>
         </div>
-
-        <ul class="messageSubject">
-            <li class="listStyle ng-class: { messageRead: !textMessage.outb };"
+<table>
+        <tr class="messageSubject">
+            <div class="listStyle ng-class: { messageRead: !textMessage.outb };"
                 ng-repeat="textMessage in messageArray | orderBy:'releasedate'"
                 ng-click="textMessageSetFlag(textMessage)"
                 ng-show="textMessage.directmessage">
-                    {{ textMessage.subject }}
+                   Subject: {{ textMessage.subject }}
 
-                <div>
-                    <p ng-show="textMessage.ID == textMessageFlag">{{ textMessage.message }}</p>
-                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb">{{ textMessage.inb }}</p>
+                <div style=" font-weight:normal;">
+                    <p style="color: #4F8A10;background-color: #DFF2BF;" ng-show="textMessage.ID == textMessageFlag">CBB: {{ textMessage.message }}</p>
+                    <p ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && textMessage.inb"> Your Reply: {{ textMessage.inb }}</p>
                     <p ng-show="textMessage.ID == textMessageFlag && textMessage.inb">{{ messageArray[textMessage.nextmessage].message }}</p>
                     <div ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
 
@@ -116,14 +123,14 @@
                     </div>
                     <br ng-show="textMessage.ID == textMessageFlag" />
                 </div>
-            </li>
 
-        </ul>
+</div>
+        </tr>
 
-    </div>
+</table>
 
 
 </div>
 
 
-
+</div>
