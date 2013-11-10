@@ -23,10 +23,11 @@ app.configure('development', function(){
 });
 
 //app.get('/', get.all);
-app.get('/loginSignup/:id', get.oneEmail)
+//app.get('/loginSignup/:id', get.oneEmail)
 app.get('/loginSignup/:id/:pwd', get.one);
-app.get('/messages/:email', getdata.one);
-app.post('/messages/:message/:email', getdata.addMessage);
+app.get('/messages/:id', getdata.one);
+app.post('/messages/:id/:messageID', getdata.setMessageAsRead);
+app.post('/messages/:message/:email/:messageID', getdata.addMessage);
 app.post('/loginSignup/:firstname/:lastname/:email/:password', get.addUser);
 app.post('/:feedback', get.addFeedback);
 

@@ -18,109 +18,56 @@
 -->
 
 <div class=well>
-<h3>Login</h3>
+    <h3>Login</h3>
 
-<p>
-    Please enter the following information to login.
-</p>
-<div class="input-group">
-    <table >
-        <style type="text/css">
-            .errorClassSignUp{
-                color: red;
-            }
-        </style>
-        <tr>
-            <td>
-                Email
-            </td>
-            <td>
-                <input type="text"
-                       placeholder="Enter email"
-                       ng-model="newParticipant.email">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ loginErrorEmail }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Password
-            </td>
-            <td>
-                <input type="password"
-                       placeholder="Enter password"
-                       ng-model="newParticipant.password">
-                </input>
-            </td>
-            <td class="errorClassSignUp">
-                {{ loginErrorPassword }}
-            </td>
-        </tr>
-    </table>
-    <h6><p style="color: red">{{ loginErrorNotification }}</p></h6>
+    <p>
+        Please enter the following information to login.
+    </p>
+    <div class="input-group">
+        <table >
+            <style type="text/css">
+                .errorClassSignUp{
+                    color: red;
+                }
+            </style>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    <input type="email"
+                           placeholder="Enter email"
+                           ng-model="newParticipant.email">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ loginErrorEmail }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password"
+                           placeholder="Enter password"
+                           ng-model="newParticipant.password">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ loginErrorPassword }}
+                </td>
+            </tr>
+        </table>
+        <h6><p style="color: red">{{ loginErrorNotification }}</p></h6>
 
-</div>
+    </div>
 
 
-<!--
-<button ng-click="authenticateParticipant()">
-Login
-</button>
--->
 
-<div>
+    <div>
         <a class="calculate-button"
            ng-click="loginTry()">Login</a>
-</div>
-
-
-    <!--
-    <div>
-            <a class="calculate-button" href="#/home"
-               ng-click="loginTry()">Login</a>
     </div>
-    -->
 
-        <button ng-click="loginTry()">
-            Login
-        </button>
-
-        </div>
-
-    <!--
-
-    <!doctype html>
-    <html>
-    <head>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#user-submit').click(function () {
-                    var payload = {
-                        name: $('#user-name').val()
-                    };
-
-                    $.ajax({
-                        url: "/participants",
-                        type: "POST",
-                        contentType: "application/json",
-                        processData: false,
-                        data: JSON.stringify(payload),
-                        complete: function (data) {
-                            $('#output').html(data.responseText);
-                        }
-                    });
-                });
-            });
-        </script>
-    </head>
-    <body>
-    <h3>Enter a username to enter into the database:</h3>
-    <input id="user-name" type="text" />
-    <input id="user-submit" type="submit" />
-    <p id="output"></p>
-    </body>
-    </html>
-    -->
+</div>

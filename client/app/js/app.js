@@ -116,6 +116,8 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
         * Main route provider for the study design tab
          */
         $routeProvider
+
+
             .when('/login',
             {templateUrl: 'partials/loginView.html', controller: 'participantsController' }
         )
@@ -132,7 +134,7 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
             {templateUrl: 'partials/youtubeView.html', controller: 'nominalPowerController' }
         )
             .when('/text',
-            {templateUrl: 'partials/textView.html', controller: 'typeIErrorRateController' }
+            {templateUrl: 'partials/textView.html', controller: 'contactInfoController' }
         )
             .when('/tutorial',
             {templateUrl: 'partials/tutorialView.html', controller: 'predictorsController' }
@@ -144,10 +146,6 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
             // contact us screens
             .when('/feedback',
             {templateUrl: 'partials/feedbackView.html', controller: 'feedbackController' }
-
-        )
-            .when('/text',
-            {templateUrl: 'partials/textView.html', controller: 'responseController' }
 
         )
 
