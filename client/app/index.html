@@ -36,6 +36,9 @@
     <link type="text/css" rel="stylesheet" href="css/cbb.css">
     <link type="text/css" rel="stylesheet" href="css/ng-grid.css">
 
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
     <script>
         $(function() {
             $( "#guided-accordion" ).accordion({
@@ -95,25 +98,46 @@
                     <a href="#/login" data-ng-click="setMode(cbbConstants.modeGuided)"
                        class="mode-selection-link">Login</a>
                 </td>
+            <tr>
+            <tr>
+                <td>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#/signUp"
+                       data-ng-click="setMode(cbbConstants.modeMatrix)"
+                       class="mode-selection-link">Sign Up</a>
+                </td>
+            </tr>
+            <!--
+            <tr>
                 <td class="mode-selection-description rounded-box white-box">
                     If you have used CBB1.0 earlier, please login with your registered email address and password.
                 </td>
             </tr>
+            -->
         </table>
     </div>
+    <!--
     <div class="mode-selection-block gray-box rounded-box">
         <table>
             <tr>
                 <td>
-                    <a href="#/signUp" data-ng-click="setMode(cbbConstants.modeMatrix)"
+                    <a href="#/signUp"
+                       data-ng-click="setMode(cbbConstants.modeMatrix)"
                        class="mode-selection-link">Sign Up</a>
                 </td>
+
                 <td class="mode-selection-description rounded-box white-box">
                     If you are a new user, please sign up with your email address and password.
                 </td>
+
             </tr>
         </table>
     </div>
+    -->
 
 </div>
 <!-- "tabs" which switch between the study design and results views.
