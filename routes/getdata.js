@@ -16,6 +16,19 @@ exports.one = function(req, res){
     }
 };
 
+exports.spanishone = function(req, res){
+    var Id = req.params.id;
+    if (connection) {
+        var queryString = "select * from outboundspanish a, user" + Id + " b where a.ID = b.ID AND releasedate < now() ";
+        console.log(queryString);
+        connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            console.log(rows[0].message);
+            res.send(rows);
+        });
+    }
+};
+
 exports.addMessage = function(req, res) {
     var message = req.params.message;
     var id = req.params.email;

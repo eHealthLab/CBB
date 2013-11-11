@@ -154,6 +154,46 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
 
         )
 
+
+
+
+
+            .when('/spanish/login',
+            {templateUrl: 'partials/spanish/loginView.html', controller: 'participantsSpanishController' }
+        )
+            .when('/spanish/signUp',
+            {templateUrl: 'partials/spanish/signUpView.html', controller: 'participantsSpanishController' }
+        )
+            .when('/spanish/home',
+            {templateUrl: 'partials/spanish/home.html'}
+        )
+            .when('/spanish/facebook',
+            {templateUrl: 'partials/spanish/facebookView.html', controller: 'solutionTypeController' }
+        )
+            .when('/spanish/youtube',
+            {templateUrl: 'partials/spanish/youtubeView.html', controller: 'nominalPowerController' }
+        )
+            .when('/spanish/text',
+            {templateUrl: 'partials/spanish/textView.html', controller: 'contactInfoSpanishController' }
+        )
+            .when('/spanish/tutorial',
+            {templateUrl: 'partials/spanish/tutorialView.html', controller: 'predictorsController' }
+        )
+            .when('/spanish/aboutUs',
+            {templateUrl: 'partials/spanish/aboutUsView.html', controller: 'covariatesController' }
+        )
+
+            // contact us screens
+            .when('/spanish/feedback',
+            {templateUrl: 'partials/spanish/feedbackView.html', controller: 'feedbackController' }
+
+        )
+
+            .when('/spanish/contactInfo',
+            {templateUrl: 'partials/spanish/contactInfoView.html', controller: 'contactInfoController' }
+
+        )
+
             .otherwise({ redirectTo: '/' });
     }]);
 

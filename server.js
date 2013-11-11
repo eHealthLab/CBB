@@ -26,6 +26,7 @@ app.configure('development', function(){
 //app.get('/loginSignup/:id', get.oneEmail)
 app.get('/loginSignup/:id/:pwd', get.one);
 app.get('/messages/:id', getdata.one);
+app.get('/messages/spanish/:id', getdata.spanishone);
 app.post('/messages/:id/:messageID', getdata.setMessageAsRead);
 app.post('/messages/:message/:email/:messageID', getdata.addMessage);
 app.post('/loginSignup/:firstname/:lastname/:email/:password', get.addUser);

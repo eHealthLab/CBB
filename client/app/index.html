@@ -174,7 +174,7 @@
 <div class="accordion-grid"
      ng-show="getMode() == cbbConstants.modeGuided && getView() == cbbConstants.viewTypeStudyDesign">
     <div class="accordion ui-accordion" id="guided-accordion">
-        <h3><a href="#/home">Start</a></h3>
+        <h3><a href="#/{{ viewLanguage }}home">Start</a></h3>
         <div>
             <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
                 <a href="#/facebook">Facebook</a></div>
@@ -184,27 +184,28 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/{{ viewLanguage }}text">Text</a>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
         <div>
             <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/tutorial">Tutorial</a>
+                <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
             </div>
             <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/aboutUs">About Us</a>
+                <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
             </div>
         </div>
         <h3><a href="#">Contact Us</a></h3>
         <div>
             <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/contactInfo">Contact Us</a>
+                <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
             </div>
             <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/feedback">Feedback</a>
+                <a href="#/{{ viewLanguage }}feedback">Feedback</a>
             </div>
         </div>
+        <h3><a href="#" ng-click="changeLanguage()">Change Language</a></h3>
 
     </div>
 </div>
@@ -223,27 +224,28 @@
                 <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
             </div>
             <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/text">Text</a>
+                <a href="#/{{ viewLanguage }}text">Text</a>
             </div>
         </div>
         <h3><a href="#">General Info</a></h3>
         <div>
             <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/tutorial">Tutorial</a>
+                <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
             </div>
             <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/aboutUs">About Us</a>
+                <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
             </div>
         </div>
         <h3><a href="#">Contact Us</a></h3>
         <div>
             <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/contactInfo">Contact Us</a>
+                <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
             </div>
             <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/feedback">Feedback</a>
+                <a href="#/{{ viewLanguage }}feedback">Feedback</a>
             </div>
         </div>
+        <h3><a href="#" ng-click="changeLanguage()">Change Language</a></h3>
 
     </div>
 </div>

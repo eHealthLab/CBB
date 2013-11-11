@@ -22,7 +22,7 @@
  */
 cbbApp.controller('stateController',
     function($scope, $rootScope, $location, $http, $modal,
-             cbbConstants, studyDesignService, powerService) {
+             cbbConstants, studyDesignService, powerService, participantService) {
 
         /**
          * Initialize the controller
@@ -56,7 +56,24 @@ cbbApp.controller('stateController',
             // Mode indicates if the user selected guided or matrix mode
             $scope.mode = undefined;
 
+            $scope.viewLanguage = "";
+
         }
+
+        $scope.changeLanguage = function () {
+            window.alert("Entered");
+            if($scope.viewLanguage == "") {
+                window.alert("Entered IF");
+                participantService.setLanguageStatus("false");
+                $scope.viewLanguage = "spanish/";
+                //window.alert($scope.viewLanguage);
+            } else {
+                window.alert("Entered else");
+                participantService.setLanguageStatus("true");
+                $scope.viewLanguage = "";
+                //window.alert($scope.viewLanguage);
+            }
+        };
 
         /**
          * Convenience routine to determine if a screen is done
@@ -3011,6 +3028,7 @@ cbbApp.controller('stateController',
                 password: undefined,
                 passwordConfirm: undefined
             };
+            //$scope.viewLanguage = "";
 
             //$scope.participantList = $scope.participantSvc.getAll();
         }
@@ -3111,6 +3129,16 @@ cbbApp.controller('stateController',
             }
         };
 
+        /*$scope.changeLanguage = function () {
+            if($scope.viewLanguage == "") {
+                participantService.setLanguageStatus("false");
+                $scope.viewLanguage == "spanish/";
+            } else {
+                participantService.setLanguageStatus("true");
+                $scope.viewLanguage == "";
+            }
+        };*/
+
 
 
 
@@ -3147,6 +3175,204 @@ cbbApp.controller('stateController',
             else {
                 $scope.textMessageFlag = 0;
                 $http.get('http://localhost:3000/messages/' + participantService.getLoginStatus()).
+                    success(function(data, status, headers, config) {
+                        window.alert("Success");
+                        $scope.messageArray = data;
+                        for(var s in $scope.messageArray) {
+                            if(!s.outb) $scope.unreadMessageCount += 1;
+                        }
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                /*$scope.getParticipants = function() {
+                 $scope.participantSvc.getParticipants().then(function(data) {
+                 $scope.participantsList = angular.fromJson(data);
+                 })
+                 }*/
+            }
+        };
+
+        $scope.textMessageSetFlag = function(textMessage){
+            $scope.textMessageFlag = textMessage.ID;
+            $http.post('http://localhost:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
+                success(function(data, status, headers, config) {
+                    //window.alert("hi" + $scope.newMessage1.message);
+                    //window.alert("Message Added");
+                    $scope.messageArray[textMessage.ID-1].outb = true;
+                    for(var s in $scope.messageArray) {
+                        if(!s.outb) $scope.unreadMessageCount += 1;
+                    }
+                    //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure " + status);
+                });
+            //$scope.messageRead = !$scope.messageRead;
+        };
+
+        $scope.submitMessage = function(messageID){
+            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
+                success(function(data, status, headers, config) {
+                    //window.alert("hi" + $scope.newMessage1.message);
+                    window.alert("Message Added");
+                    $scope.messageArray = data;
+                }).
+                error(function(data, status, headers, config) {
+                    window.alert("Failure " + status);
+                });
+        };
+    })
+
+    .controller('participantsSpanishController',
+    function($scope, $http, participantService) {
+
+        init();
+        function init() {
+            $scope.participantSvc = participantService;
+            $scope.newParticipant = {
+                firstName: undefined,
+                lastName: undefined,
+                email: undefined,
+                password: undefined,
+                passwordConfirm: undefined
+            };
+            //$scope.viewLanguage = "";
+
+            //$scope.participantList = $scope.participantSvc.getAll();
+        }
+
+        $scope.loginTry = function(){
+
+            $scope.loginErrorEmail = undefined;
+            $scope.loginErrorPassword = undefined;
+            $scope.loginErrorNotification = undefined;
+
+            if(!$scope.newParticipant.email) $scope.loginErrorEmail = "Introduzca su dirección de correo.";
+            else if(!$scope.newParticipant.password) $scope.loginErrorPassword = "Introduzca su contraseña.";
+            else {
+                var email = $scope.newParticipant.email.toUpperCase();
+                $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
+                    success(function(data, status, headers, config) {
+                        $scope.appsData = data;
+                        if($scope.appsData != "false") {
+                            window.alert("Success");
+                            participantService.setLoginStatus($scope.appsData[0].ID);
+                            //window.alert(participantService.getLoginStatus());
+                        }
+                        else
+                            $scope.loginErrorNotification = "Compruebe la información de inicio de sesión y vuelva a intentarlo."
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                /*$scope.getParticipants = function() {
+                 $scope.participantSvc.getParticipants().then(function(data) {
+                 $scope.participantsList = angular.fromJson(data);
+                 })
+                 }*/
+            }
+        };
+
+
+
+        $scope.signupTry = function(){
+            //window.alert("Failure");
+
+            $scope.signUpErrorFirstName = undefined;
+            $scope.signUpErrorLastName = undefined;
+            $scope.signUpErrorEmail = undefined;
+            $scope.signUpErrorPassword = undefined;
+            $scope.signUpErrorNotification = undefined;
+
+            if(!$scope.newParticipant.firstName) $scope.signUpErrorFirstName = "Ingrese su nombre.";
+            else if(!$scope.newParticipant.lastName) $scope.signUpErrorLastName = "Escriba su apellido.";
+            else if(!$scope.newParticipant.email) $scope.signUpErrorEmail = "Ingrese un correo electrónico válido.";
+            else if(!$scope.newParticipant.password) $scope.signUpErrorPassword = "Introduzca una contraseña.";
+            else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Las contraseñas no coinciden. Corrija y vuelva a intentarlo.";
+            else {
+                //window.alert("Entered");
+                var email = $scope.newParticipant.email.toUpperCase();
+
+                $http({method: 'POST',
+                    url: 'http://localhost:3000/loginSignup/' +
+                        $scope.newParticipant.firstName + '/' +
+                        $scope.newParticipant.lastName + '/' +
+                        email + '/' +
+                        $scope.newParticipant.password
+                }).
+                    success(function(data, status, headers, config) {
+                        //window.alert("Success");
+                        $scope.appsData = data;
+                        if(data.status == "true")
+                            window.alert("Success Signup");
+                        else {
+                            window.alert("Existe ID de correo electrónico. Utilice una ID de correo electrónico diferente.");
+                        }
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                /*$scope.getParticipants = function() {
+                 $scope.participantSvc.getParticipants().then(function(data) {
+                 $scope.participantsList = angular.fromJson(data);
+                 })
+                 }*/
+            }
+        };
+
+        /*$scope.changeLanguage = function () {
+         if($scope.viewLanguage == "") {
+         participantService.setLanguageStatus("false");
+         $scope.viewLanguage == "spanish/";
+         } else {
+         participantService.setLanguageStatus("true");
+         $scope.viewLanguage == "";
+         }
+         };*/
+
+
+
+
+        /**
+         * Authenticate existing participant on login screen
+         */
+    })
+
+    /*
+     Controller for text messages
+     */
+
+    .controller('contactInfoSpanishController', function($scope, $http, participantService) {
+
+        init();
+
+
+
+        function init() {
+            $scope.newMessage1 = {
+                message: undefined
+            };
+            $scope.messageRead = true;
+            $scope.unreadMessageCount = 0;
+            //$scope.getMessages();
+        }
+
+        $scope.getMessages = function(){
+            //window.alert("Failure");
+            //window.alert($scope.newParticipant.password);
+            if(participantService.getLoginStatus() == "false"){
+                window.alert("Please login to view messages.");
+            }
+            else {
+                $scope.textMessageFlag = 0;
+                $http.get('http://localhost:3000/messages/spanish/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
                         window.alert("Success");
                         $scope.messageArray = data;
