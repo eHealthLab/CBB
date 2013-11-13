@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-* CBB (Colorado Bright Beginnings)
+* GLIMMPSE (General Linear Multivariate Model Power and Sample size)
 * Copyright (C) 2013 Regents of the University of Colorado.
 *
 * This program is free software; you can redistribute it and/or
@@ -20,10 +20,25 @@
 <html lang="en" ng-app="cbb">
 
 <head>
-
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <LINK REL="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <title>CBB: Colorado Bright Beginnings</title>
+
+    <!--  <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-21939703-1']);
+            _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+      <script type="text/javascript"
+        src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>        -->
 
     <script src="lib/jquery.min.js"></script>
     <script src="lib/jquery-ui.min.js"></script>
@@ -31,296 +46,314 @@
     <script src="lib/highcharts.js"></script>
     <script src="lib/exporting.js"></script>
 
+    <!-- order matters here, so be careful if you edit -->
+    <!-- bootstrap plugins - load after jquery -->
+    <script src="lib/bootstrap.min.js"></script>
+    <!-- Angular.js scripts -->
+
+
+    <!-- <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" />  -->
 
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="css/cbb.css">
     <link type="text/css" rel="stylesheet" href="css/ng-grid.css">
-
-    <meta name="viewport" content="width=device-width,
-    initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link type="text/css" rel="stylesheet" href="css/cbb.css">
 
     <script>
         $(function() {
-            $( "#guided-accordion" ).accordion({
-                active: false,
-                autoHeight: false,
-                navigation: true
-            });
-            $( "#matrix-accordion" ).accordion({
-                active: false,
-                autoHeight: false,
-                navigation: true
-            });
+
+
+
+//            $( "#guided-accordion" ).accordion({
+//                active: false,
+//                autoHeight: false,
+//                navigation: true
+//            });
+//            $( "#matrix-accordion" ).accordion({
+//                active: false,
+//                autoHeight: false,
+//                navigation: true
+//            });
+
+//
+//            window.onbeforeunload = function (event) {
+//                var message = 'This action will clear your study design information.  Continue?';
+//                if (typeof event == 'undefined') {
+//                    event = window.event;
+//                }
+//                if (event) {
+//                    event.returnValue = message;
+//                }
+//                return message;
+//            }
         });
 
     </script>
-    <style type="text/css">
-    sup
-    {
-        color: rgb(255, 255, 255);
-        font: bold 0.9em Tahoma,Arial,Helvetica;
-        border-radius: 8px;
-        padding: 1px 4px;
-        background-color: red;
-        top: -0.5em;
-        position: relative;
-        vertical-align: baseline;
 
-    }
 
-</style>
 </head>
 
 <body>
 
-<div id="layout-grid" ng-controller="stateController">
-<div id="header">
-    <div id="glimmpse-topbar">
-        <div id="glimmpse-logo">CBB1.0 (Colorado Bright Beginnings)</div>
-        <div id="top-navbar">
-           <div class="top-navbar-link"><a href="http://brightbeginningsusa.org/"
-                target="_blank">
-                brightbeginningsusa.org</a>
-            </div>
+<div class="container" ng-controller="stateController">
+<!-- header bar -->
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header ">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsed-header">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <label class="logo">CBB1.0 (Colorado Bright Beginnings)</label>
+            </a>
         </div>
-    </div>
-</div>
-<!-- Mode selection screen -->
-<div id="mode-selection" class="font-main" ng-show="getMode() == undefined">
-    <h3> Welcome to CBB</h3>
-    <p>
-        Please either login or sign up to continue.
-    </p>
-    <div class="mode-selection-block gray-box rounded-box">
-        <table>
-            <tr>
-                <td class="mode-selection-link-container">
-                    <a href="#/login" data-ng-click="setMode(cbbConstants.modeGuided)"
-                       class="mode-selection-link">Login</a>
-                </td>
-            <tr>
-            <tr>
-                <td>
-                    <br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#/signUp"
-                       data-ng-click="setMode(cbbConstants.modeMatrix)"
-                       class="mode-selection-link">Sign Up</a>
-                </td>
-            </tr>
-            <!--
-            <tr>
-                <td class="mode-selection-description rounded-box white-box">
-                    If you have used CBB1.0 earlier, please login with your registered email address and password.
-                </td>
-            </tr>
-            -->
-        </table>
-    </div>
-    <!--
-    <div class="mode-selection-block gray-box rounded-box">
-        <table>
-            <tr>
-                <td>
-                    <a href="#/signUp"
-                       data-ng-click="setMode(cbbConstants.modeMatrix)"
-                       class="mode-selection-link">Sign Up</a>
-                </td>
 
-                <td class="mode-selection-description rounded-box white-box">
-                    If you are a new user, please sign up with your email address and password.
-                </td>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="collapsed-header">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://samplesizeshop.org/files/2012/08/GLIMMPSEUserManual_v2.0.0.pdf" target="_blank">Help</a>
+                </li>
+                <li>
+                    <a href="http://samplesizeshop.org">SampleSizeShop.org</a>
+                </li>
+                <li>
+                    <a href="http://samplesizeshop.org/documentation/glimmpse/">Documentation</a>
+                </li>
+                <li>
+                    <a href="http://samplesizeshop.org/software-downloads/glimmpse/">Downloads</a>
+                </li>
+                <li>
+                    <a href="/feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
 
-            </tr>
-        </table>
-    </div>
-    -->
-
-</div>
-<!-- "tabs" which switch between the study design and results views.
- It really just swaps out the left navbar because we're all sly like that -->
-<!--
-<div id="view-bar" class="font-main" ng-show="getMode() != undefined">
-    <a href="#/solvingFor" ng-click="setView(cbbConstants.viewTypeStudyDesign)"
-       class="{{getView() == cbbConstants.viewTypeStudyDesign && 'active'}}">Home</a>
-    <a href="#/results/report" ng-click="setView(cbbConstants.viewTypeResults)"
-       class="{{getView() == cbbConstants.viewTypeResults && 'active'}}">Contact Us</a>
-</div>
--->
-<!-- main application panel -->
-<div id="glimmpse-panel" ng-show="getMode() != undefined">
-<table id="content-table">
-<tr>
-<td>
-
-<!--
-    <div id="calculate-grid" >
-
-    <div ng-show="calculateAllowed()">
-        <a class="calculate-button" href="#/results/report"
-           ng-click="calculate()">Calculate</a>
-    </div>
-    <div>
-        <button ng-show="!calculateAllowed()" class="calculate-button-disabled"
-                data-ng-click="showIncompleteItemsDialog()">Calculate</button>
-    </div>
-</div>
-!-->
-
-<!-- left navbar for view in login -->
-<div class="accordion-grid"
-     ng-show="getMode() == cbbConstants.modeGuided && getView() == cbbConstants.viewTypeStudyDesign">
-    <div class="accordion ui-accordion" id="guided-accordion">
-        <h3><a href="#/{{ viewLanguage }}home">Start</a></h3>
-        <div>
-            <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
-                <a href="#/facebook">Facebook</a></div>
-            <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
-                <a href="#/youtube"
-                   ng-show="viewAllowed(getStateNominalPower())">Youtube</a>
-                <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
-            </div>
-            <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/{{ viewLanguage }}text">Text</a>
-            </div>
-        </div>
-        <h3><a href="#">General Info</a></h3>
-        <div>
-            <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
-            </div>
-            <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
-            </div>
-        </div>
-        <h3><a href="#">Contact Us</a></h3>
-        <div>
-            <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
-            </div>
-            <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/{{ viewLanguage }}feedback">Feedback</a>
-            </div>
-        </div>
-        <h3><a href="#" ng-click="changeLanguage()">Change Language</a></h3>
-
-    </div>
-</div>
-<!-- left navbar for view in sign up -->
-<div class="accordion-grid"
-     ng-show="getMode() == cbbConstants.modeMatrix && getView() == cbbConstants.viewTypeStudyDesign">
-    <div class="accordion ui-accordion" id="matrix-accordion">
-        <h3><a href="#">Start</a></h3>
-        <div>
-            <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
-                <a href="#/facebook">Facebook</a></div>
-            <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
-                <a href="#/youtube" ng-show="viewAllowed(getStateNominalPower())">
-                    Youtube
+    <!-- Mode selection screen -->
+    <div class="well shaded-box " ng-show="getMode() == undefined">
+        <h3>Welcome to CBB</h3>
+        <p>
+            Please either login or sign up to continue.
+        </p>
+        <div class="row vmargin15 hpadding0 box gray-box rounded-box">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="#/login" class="btn btn-mode"
+                   data-ng-click="setMode(cbbConstants.modeGuided)" >
+                    Login
                 </a>
-                <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
-            </div>
-            <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                <a href="#/{{ viewLanguage }}text">Text</a>
             </div>
         </div>
-        <h3><a href="#">General Info</a></h3>
-        <div>
-            <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
-            </div>
-            <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
-            </div>
-        </div>
-        <h3><a href="#">Contact Us</a></h3>
-        <div>
-            <div class="{{isActive('/predictors') && 'active'}} {{getStatePredictors()}}" >
-                <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
-            </div>
-            <div class="{{isActive('/covariates') && 'active'}} {{getStateCovariate()}}" >
-                <a href="#/{{ viewLanguage }}feedback">Feedback</a>
+        <div class="row vmargin15 hpadding0 box gray-box rounded-box">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a href="#/signUp" class="btn btn-mode"
+                   data-ng-click="setMode(cbbConstants.modeMatrix)" >
+                    Sign Up
+                </a>
             </div>
         </div>
-        <h3><a href="#" ng-click="changeLanguage()">Change Language</a></h3>
-
     </div>
+
+
+    <!-- main Web application panel -->
+    <div class="white-box shaded-box rounded-box" ng-show="getMode() != undefined">
+
+    <!-- toolbox menu -->
+    <div class="row hpadding30 hmargin15">
+        <div class="pull-right">
+            <!--div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="toolbar" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-cog"></span>
+                    Tools
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu"  role="menu" aria-labelledby="toolbar">
+                    <li role="presentation">
+                        <form name="saveForm" method='post' action="/file/saveas" target="_blank">
+                            <div>
+                                <input type="hidden" name="filename" value="study.json"/>
+                                <input type="hidden" name="data" value='{{studyDesignJSON}}' />
+                            </div>
+                            <button role="menuitem" type="submit" data-ng-click="updateStudyDesignJSON()">Save Design</button>
+                        </form>
+                    </li>
+                    <!-- <li role="presentation">
+                        <div role="menuitem"  ng-show="getView()==glimmpseConstants.viewTypeResults">
+                            <a href="">Save Report</a>
+                        </div>
+                    </li>    -->
+                    <!--li role="presentation">
+                        <form name="saveResultsToCSVForm" method='post' action="/file/saveas" target="_blank">
+                            <div>
+                                <input type="hidden" name="filename" value="results.csv"/>
+                                <input type="hidden" name="data" value='{{resultsCSV}}' />
+                            </div>
+                            <button type="submit" role="menuitem" data-ng-click="updateResultsCSV()">Save Results as CSV</button>
+                        </form>
+                    </li>
+                    <li  role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a href="#" role="menuitem"  data-ng-click="reset()">Cancel</a>
+                    </li>
+                </ul>
+            </div-->
+        </div>
+    </div>
+
+    <!-- main application page for mobile (small and extra small screens) -->
+    <div class="visible-sm visible-xs">
+        <div ng-view ng-class="slide" class="padding10"></div>
+    </div>
+
+    <!-- main application content-->
+    <div class="row hmargin5 padding0 visible-md visible-lg">
+
+        <!-- left nav -->
+        <div class="col-md-3">
+            <div ng-show="!calculateAllowed()" >
+                <!-- The processing dialog -->
+                <a href="#" data-ng-click="reset()"
+                        class="btn btn-large calculate-button"
+                        data-target="#incompleteDialog">Logout</a>
+            </div>
+
+        <!-- left nav -->
+            <div class="vmargin15" >
+                <div class="panel-group" id="nav-accordion" >
+                    <div class="panel panel-default">
+                    <!-- start menu -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-start">
+                                    Start
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="nav-start" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
+                                    <a href="#/facebook">Facebook</a>
+                                </div>
+                                <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
+                                    <a href="#/youtube"
+                                       ng-show="viewAllowed(getStateNominalPower())">Youtube</a>
+                                    <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
+                                </div>
+                                <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
+                                    <a href="#/{{ viewLanguage }}text">Text</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    <!-- options -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-options">
+                                    General Info
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="nav-options" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
+                                    <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
+                                </div>
+                                <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
+                                    <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Results -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <!-- TODO: disable when results unavailable -->
+                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-results">
+                                    Contact Us
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="nav-results" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="{{isActive('/results/report') && 'active'}}" >
+                                    <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
+                                </div>
+                                <div class="{{isActive('/results/matrices') && 'active'}}" >
+                                    <a href="#/{{ viewLanguage }}feedback">Feedback</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- main content area with toolbar -->
+            <div class="col-md-9 visible-md visible-lg">
+                <div class="box rounded-box">
+                    <div class="padding10" ng-view=""></div>
+            </div>
+        </div>
+    </div>
+
+        <!-- The processing dialog -->
+        <div class="modal fade" id="processingDialog" tabindex="-1"
+             role="dialog" aria-labelledby="processingDialogLabel" aria-hidden="{{showProcessing && false}}">
+            <div class="modal-dialog rounded-box white-box">
+                <div class="modal-body">
+                    <div class="processing">Processing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="incompleteDialog" tabindex="-1"
+             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog rounded-box white-box">
+                <div class="model-content">
+                    <div class="modal-header">
+                        <h3>The following items are incomplete</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-repeat="view in incompleteViews">
+                            {{view}}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">OK</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- footer -->
+    <div class="row">
+        <div class="col-md-12 text-center vmargin15">
+            <div>Copyright 2013 University of Colorado Denver. CBB is released under the
+                <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU Public License version 2.0</a>.</div>
+            <div>
+                CBB version 1.0 is funded by FUNDING INFO.
+            </div>
+        </div>
+    </div>
+
 </div>
-<!-- left navbar for results view -->
-<!--
-<div class="accordion-grid">
-    <div id="results-navbar" ng-show="getView() == cbbConstants.viewTypeResults">
-        <div class="{{isActive('/results/report') && 'active'}}" >
-            <a href="#/contact/feedback">Feedback</a>
-        </div>
-        <div class="{{isActive('/results/plot') && 'active'}}" >
 
-            <a href="#/contact/contactInfo" >Contact Info</a>
-        </div>
-
-    </div>
-</div>
--->
-
-<!-- Tool bar -->
-<div class="toolbox font-main rounded-box">
-    <div class="toolbox-item">
-        <a href="#" data-ng-click="reset()">Logout</a>
-    </div>
-</div>
-</td>
-<td>
-    <!-- content area for partials -->
-    <div id="content" class="font-main rounded-box" ng-view=""></div>
-</td>
-</tr>
-</table>
-</div>
-
-<!-- The processing dialog -->
-<script type="text/ng-template" id="processingDialog.html">
-    <div class="modal-body">
-        <div class="processing">Processing</div>
-    </div>
-</script>
-
-
-<!-- The processing dialog -->
-<script type="text/ng-template" id="incompleteDialog.html">
-    <div class="modal-header">
-        <h3>The following items are incomplete</h3>
-    </div>
-    <div class="modal-body">
-        <div ng-repeat="view in incompleteViews">
-            {{view}}
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button data-ng-click="close()">OK</button>
-    </div>
-</script>
-
-
-<!-- footer -->
-<div id="footer">
-    <div>Copyright 2013 University of Colorado Denver. CBB is released under the
-        <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU Public License version 2.0</a>.</div>
-    <div>
-        CBB version 1.0 is funded by FUNDING INFO.
-    </div>
-</div>
-
-<!-- order matters here, so be careful if you edit -->
-<!-- Angular.js scripts -->
 <script src="lib/angular.min.js"></script>
-<script src="lib/exporting.js"></script>
-<script src="lib/highcharts-ng.js"></script>
+<script src="lib/angular-touch.js"></script>
 <script src="lib/ng-grid-2.0.7.min.js"></script>
 <script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
-
+<script src="lib/highcharts-ng.js"></script>
 
 <!-- app specific scripts -->
 <script src="js/app.js"></script>
@@ -331,8 +364,6 @@
 <script src="js/directives.js"></script>
 <script src="js/controllers/controllers.js"></script>
 
-
-</div>
 
 </body>
 </html>

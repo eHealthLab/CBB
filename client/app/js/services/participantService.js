@@ -36,6 +36,10 @@ cbbApp.factory('participantService', function($http, $q, cbbConstants) {
         return loginStatus;
     }
 
+    participantServiceInstance.setLoginStatus = function(loginStatusID) {
+        loginStatus = loginStatusID;
+    }
+
     participantServiceInstance.setLanguageStatus = function(languageStatusID) {
         languageStatus = languageStatusID;
     }

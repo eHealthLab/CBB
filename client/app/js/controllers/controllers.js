@@ -63,12 +63,12 @@ cbbApp.controller('stateController',
         $scope.changeLanguage = function () {
             window.alert("Entered");
             if($scope.viewLanguage == "") {
-                window.alert("Entered IF");
+                //window.alert("Entered IF");
                 participantService.setLanguageStatus("false");
                 $scope.viewLanguage = "spanish/";
                 //window.alert($scope.viewLanguage);
             } else {
-                window.alert("Entered else");
+                //window.alert("Entered else");
                 participantService.setLanguageStatus("true");
                 $scope.viewLanguage = "";
                 //window.alert($scope.viewLanguage);
@@ -3050,6 +3050,7 @@ cbbApp.controller('stateController',
                             window.alert("Success");
                             participantService.setLoginStatus($scope.appsData[0].ID);
                             //window.alert(participantService.getLoginStatus());
+                            //window.alert(participantService.getLoginStatus());
                         }
                         else
                             $scope.loginErrorNotification = "Check the login information and try again."
@@ -3176,7 +3177,7 @@ cbbApp.controller('stateController',
                 $scope.textMessageFlag = 0;
                 $http.get('http://localhost:3000/messages/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
-                        window.alert("Success");
+                        //window.alert("Success");
                         $scope.messageArray = data;
                         for(var s in $scope.messageArray) {
                             if(!s.outb) $scope.unreadMessageCount += 1;

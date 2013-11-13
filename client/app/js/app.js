@@ -157,7 +157,6 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
 
 
 
-
             .when('/spanish/login',
             {templateUrl: 'partials/spanish/loginView.html', controller: 'participantsSpanishController' }
         )
