@@ -58,7 +58,13 @@ cbbApp.controller('stateController',
 
             $scope.viewLanguage = "";
 
+            //$scope.loginStatus = "false";
+
+
+
         }
+
+        $scope.loginStatus = participantService.globalLoginStatus;
 
         $scope.changeLanguage = function () {
             window.alert("Entered");

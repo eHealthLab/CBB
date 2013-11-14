@@ -32,12 +32,17 @@ cbbApp.factory('participantService', function($http, $q, cbbConstants) {
 
     var languageStatus = "true";
 
+    participantServiceInstance.globalLoginStatus = "false";
+
     participantServiceInstance.getLoginStatus = function() {
         return loginStatus;
     }
 
     participantServiceInstance.setLoginStatus = function(loginStatusID) {
+        window.alert(participantServiceInstance.globalLoginStatus);
         loginStatus = loginStatusID;
+        participantServiceInstance.globalLoginStatus = loginStatusID;
+        window.alert(participantServiceInstance.globalLoginStatus);
     }
 
     participantServiceInstance.setLanguageStatus = function(languageStatusID) {

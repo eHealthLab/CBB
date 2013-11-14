@@ -94,6 +94,8 @@
 
 <body>
 
+
+
 <div class="container" ng-controller="stateController">
 <!-- header bar -->
     <nav class="navbar navbar-default" role="navigation">
@@ -111,22 +113,92 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="collapsed-header">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="http://samplesizeshop.org/files/2012/08/GLIMMPSEUserManual_v2.0.0.pdf" target="_blank">Help</a>
+        <div class="collapse navbar-collapse" id="collapsed-header" ng-show="loginStatus != 'false'">
+
+
+            <ul class="nav navbar-nav navbar-right" ng-show="loginStatus != 'false'">
+
+                <li class="vmargin15" >
+                    <div class="panel-group" id="nav-accordion" >
+                        <div class="panel panel-default">
+                            <!-- start menu -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-start">
+                                        Start
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="nav-start" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
+                                        <a href="#/facebook">Facebook</a>
+                                    </div>
+                                    <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
+                                        <a href="#/youtube"
+                                           ng-show="viewAllowed(getStateNominalPower())">Youtube</a>
+                                        <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
+                                    </div>
+                                    <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
+                                        <a href="#/{{ viewLanguage }}text">Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <a href="http://samplesizeshop.org">SampleSizeShop.org</a>
+
+
+
+                <li class="vmargin15" >
+                    <div class="panel-group" id="nav-accordion" >
+                        <div class="panel panel-default">
+                            <!-- general info -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-options">
+                                        General Info
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="nav-options" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
+                                        <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
+                                    </div>
+                                    <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
+                                        <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <a href="http://samplesizeshop.org/documentation/glimmpse/">Documentation</a>
-                </li>
-                <li>
-                    <a href="http://samplesizeshop.org/software-downloads/glimmpse/">Downloads</a>
-                </li>
-                <li>
-                    <a href="/feedback.html">Feedback</a>
+
+                <li class="vmargin15" >
+                    <div class="panel-group" id="nav-accordion" >
+                        <div class="panel panel-default">
+                            <!-- contact us -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <!-- TODO: disable when results unavailable -->
+                                    <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-results">
+                                        Contact Us
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="nav-results" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="{{isActive('/results/report') && 'active'}}" >
+                                        <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
+                                    </div>
+                                    <div class="{{isActive('/results/matrices') && 'active'}}" >
+                                        <a href="#/{{ viewLanguage }}feedback">Feedback</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -138,16 +210,18 @@
         <p>
             Please either login or sign up to continue.
         </p>
-        <div class="row vmargin15 hpadding0 box gray-box rounded-box">
-            <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="row vmargin15 hpadding0 box  rounded-box" style="border: 0;">
+            <div class="col-md-3 col-sm-3 col-xs-6">
                 <a href="#/login" class="btn btn-mode"
                    data-ng-click="setMode(cbbConstants.modeGuided)" >
                     Login
                 </a>
             </div>
         </div>
-        <div class="row vmargin15 hpadding0 box gray-box rounded-box">
-            <div class="col-md-3 col-sm-3 col-xs-12">
+
+        <div class="row vmargin15 hpadding0 box  rounded-box" style="border: 0;">
+
+            <div class="col-md-3 col-sm-3 col-xs-6">
                 <a href="#/signUp" class="btn btn-mode"
                    data-ng-click="setMode(cbbConstants.modeMatrix)" >
                     Sign Up
@@ -220,77 +294,7 @@
             </div>
 
         <!-- left nav -->
-            <div class="vmargin15" >
-                <div class="panel-group" id="nav-accordion" >
-                    <div class="panel panel-default">
-                    <!-- start menu -->
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-start">
-                                    Start
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="nav-start" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
-                                    <a href="#/facebook">Facebook</a>
-                                </div>
-                                <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
-                                    <a href="#/youtube"
-                                       ng-show="viewAllowed(getStateNominalPower())">Youtube</a>
-                                    <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
-                                </div>
-                                <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                                    <a href="#/{{ viewLanguage }}text">Text</a>
-                                </div>
-                            </div>
-                        </div>
 
-
-
-
-                    <!-- options -->
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-options">
-                                    General Info
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="nav-options" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
-                                    <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
-                                </div>
-                                <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
-                                    <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    <!-- Results -->
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <!-- TODO: disable when results unavailable -->
-                                <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-results">
-                                    Contact Us
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="nav-results" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="{{isActive('/results/report') && 'active'}}" >
-                                    <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
-                                </div>
-                                <div class="{{isActive('/results/matrices') && 'active'}}" >
-                                    <a href="#/{{ viewLanguage }}feedback">Feedback</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
             </div>
 
 
