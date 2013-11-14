@@ -113,10 +113,10 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="collapsed-header" ng-show="loginStatus != 'false'">
+        <div class="collapse navbar-collapse" id="collapsed-header">
 
 
-            <ul class="nav navbar-nav navbar-right" ng-show="loginStatus != 'false'">
+            <ul class="nav navbar-nav navbar-right">
 
                 <li class="vmargin15" >
                     <div class="panel-group" id="nav-accordion" >
@@ -142,6 +142,10 @@
                                     <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
                                         <a href="#/{{ viewLanguage }}text">Text</a>
                                     </div>
+                                    <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
+                                        <a href="#" ng-click="changeLanguage()">Change Language</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
