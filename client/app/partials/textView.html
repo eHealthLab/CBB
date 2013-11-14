@@ -93,30 +93,14 @@
             width:253px;
             padding: 10px;
         }
-        .replyButton{
 
-            margin: 0px 0px 0px 227px;
-            padding: 162px 18px 118px 25px;
-            position: absolute;
-            height: 130px;
-            width:373px;
-            color: #00529B;
-            background-color: #BDE5F8;
-            border: 1px solid;
-            border-radius: .5em;
-            top: 210px;
-        }
-       .calculate-button{
-           margin-left: 183px;
-           line-height: 22px;
-           margin-top: 62px;
-       }
+
         .textBoxStyle{
-            width: 281px;
+            width: 200px;
             height: 134px;
             left: 51px;
 
-            position: absolute;
+
             top: 72px;
         }
 
@@ -159,11 +143,12 @@
 
 
                         <div class="replyButton" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
-                            <p style="top: 14px; position: absolute;">Thank you for using CBB1.0.  Please type your message below and hit the "Submit" button.</p>
+                            <p></p>
                             <input type="text"  placeholder=" Limit is 250 character."
                                    maxlength="250"
                                    class="textBoxStyle" wrap="true"
-                                   ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb">
+                                   ng-model="newMessage1.message" ng-show="textMessage.ID == textMessageFlag && textMessage.inflag && !textMessage.inb"
+                                    value="Thank you for using CBB1.0.  Please type your message below and hit the 'Submit' button.">
                             <button class="calculate-button"
                                     ng-click="submitMessage(textMessage.ID)" ng-hide="">Submit</button>
 
