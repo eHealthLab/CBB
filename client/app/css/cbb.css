@@ -204,7 +204,7 @@ button:focus {
     font-family: Palatino, Arial, Helvetica, sans-serif;
     /*font-weight: bold;   */
     padding-left: 40px;
-    font-size: 1.5em;
+    font-size: 2em;
     line-height: 1.5em;
     background-image: url('../img/bb-logo.png');
     background-repeat: no-repeat;
