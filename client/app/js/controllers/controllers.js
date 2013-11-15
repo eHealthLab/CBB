@@ -58,6 +58,8 @@ cbbApp.controller('stateController',
 
             $scope.viewLanguage = "";
 
+            $scope.currentLanguage = "English";
+
             //$scope.loginStatus = "false";
 
 
@@ -67,16 +69,18 @@ cbbApp.controller('stateController',
         $scope.loginStatus = participantService.globalLoginStatus;
 
         $scope.changeLanguage = function () {
-            window.alert("Entered");
+            //window.alert("Entered");
             if($scope.viewLanguage == "") {
                 //window.alert("Entered IF");
                 participantService.setLanguageStatus("false");
                 $scope.viewLanguage = "spanish/";
+                $scope.currentLanguage = "Español";
                 //window.alert($scope.viewLanguage);
             } else {
                 //window.alert("Entered else");
                 participantService.setLanguageStatus("true");
                 $scope.viewLanguage = "";
+                $scope.currentLanguage = "English";
                 //window.alert($scope.viewLanguage);
             }
         };
@@ -3022,7 +3026,7 @@ cbbApp.controller('stateController',
  * Controller for the list of consultants
  */
     .controller('participantsController',
-    function($scope, $http, participantService) {
+    function($scope, $http, $location, participantService) {
 
         init();
         function init() {
@@ -3056,6 +3060,7 @@ cbbApp.controller('stateController',
                         if($scope.appsData != "false") {
                             window.alert("Success");
                             participantService.setLoginStatus($scope.appsData[0].ID);
+                            $location.path("/home");
                             //window.alert(participantService.getLoginStatus());
                             //window.alert(participantService.getLoginStatus());
                         }
@@ -3121,8 +3126,10 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         //window.alert("Success");
                         $scope.appsData = data;
-                        if(data.status == "true")
+                        if(data.status == "true") {
                             window.alert("Success Signup");
+                            $location.path("/home");
+                        }
                         else {
                             window.alert("Email ID exists. Use a different Email ID.");
                         }
@@ -3174,6 +3181,7 @@ cbbApp.controller('stateController',
             };
             $scope.messageRead = true;
             $scope.unreadMessageCount = 0;
+            $scope.loginTextStatus = participantService.getLoginStatus();
             //$scope.getMessages();
         }
 
@@ -3452,25 +3460,29 @@ cbbApp.controller('stateController',
          * Add a new participant and update the database
          */
         $scope.sendFeedback = function() {
-            window.alert("inside feedback function" + $scope.feedbackText);
+            //window.alert("inside feedback function" + $scope.feedbackText);
             if ($scope.feedbackText != undefined) {
+                if(participantService.getLoginStatus() != "false") {
 
-                $http({method: 'POST',
-                    url: 'http://localhost:3000/' +
-                        $scope.feedbackText
-                }).
-                success(function(data, status, headers, config) {
-                        $scope.appsData = data;
-                        if(data == "success")
-                            window.alert("Success inserting feedback");
-                        else
-                            window.alert("Failure inserting feedback");
-                }).
-                error(function(data, status, headers, config) {
-                    window.alert("Failure" + status);
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
+                    $http({method: 'POST',
+                        url: 'http://localhost:3000/feedback/' +
+                            $scope.feedbackText
+                    }).
+                    success(function(data, status, headers, config) {
+                            $scope.appsData = data;
+                            if(data == "Success")
+                                window.alert("Success inserting feedback");
+                            else
+                                window.alert("Failure inserting feedback");
+                    }).
+                    error(function(data, status, headers, config) {
+                        window.alert("Failure" + status);
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+                } else {
+                    window.alert("Please login to send a feedback.");
+                }
             }
         };
 

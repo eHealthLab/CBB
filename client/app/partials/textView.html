@@ -127,7 +127,8 @@
             <a
                ng-click="getMessages()" >Click here to view messages</a>
         </div-->
-<table>
+
+<table ng-show="loginTextStatus != 'false'">
         <tr class="messageSubject">
             <div class="listStyle ng-class: { messageRead: !textMessage.outb };"
                 ng-repeat="textMessage in messageArray | orderBy:'releasedate'"

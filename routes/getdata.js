@@ -47,6 +47,17 @@ exports.addMessage = function(req, res) {
     }
 };
 
+exports.addFeedback = function(req, res) {
+    var feedback = req.params.feedback;
+    if(connection) {
+        var queryString = "insert into feedback (feedback) values('" + feedback + "')";
+        connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            res.send("Success");
+        });
+    }
+};
+
 exports.setMessageAsRead = function (req, res) {
     var id = req.params.id;
     var messageID = req.params.messageID;

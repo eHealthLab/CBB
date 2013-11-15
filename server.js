@@ -30,7 +30,7 @@ app.get('/messages/spanish/:id', getdata.spanishone);
 app.post('/messages/:id/:messageID', getdata.setMessageAsRead);
 app.post('/messages/:message/:email/:messageID', getdata.addMessage);
 app.post('/loginSignup/:firstname/:lastname/:email/:password/:phoneNumber', get.addUser);
-app.post('/:feedback', get.addFeedback);
+app.post('/feedback/:feedback', getdata.addFeedback);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
