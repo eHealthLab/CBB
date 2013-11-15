@@ -26,28 +26,36 @@
 <body>
 
 <div class=well>
-<h3>Feedback</h3>
-    <p>
-        Thank you for using CBB1.0. Your feedback is very important to us.
-        Please type your message below and hit the "Submit" button.
-    </p>
-<div>
+    <h3>Feedback</h3>
+        <p>
+            Thank you for using CBB1.0. Your feedback is very important to us.
+        </p>
+        <p>
+            Please type your message below and click the "Submit" button below.
+        </p>
+    <div class=well align="center">
+        <textarea rows="8" cols="30" align="center"
+                ng-model="feedbackText">
+
+        </textarea>
+
+        <a class="calculate-button"
+           ng-click="sendFeedback()">Submit</a>
+    </div>
+
+    <!--
     <input class="form-control"
-           type=text,
+           type=textarea,
            placeholder="Please type your feedback here; Limit 250 characters."
             ng-model="feedbackText"
             maxlength="250"
             style="width: 400px;
             height: 130px"
-            wrap="true"
-
-           >
+            wrap="hard">
     </input>
+    -->
+
 </div>
-<div>
-    <a class="calculate-button" href="#/home"
-       ng-click="sendFeedback()">Submit</a>
-</div>
-</div>
+
 </body>
 </html>

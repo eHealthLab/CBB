@@ -129,24 +129,19 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="nav-start" class="panel-collapse collapse in">
+                            <div id="nav-start" class="panel-collapse collapse">
                                 <div class="panel-body">
+                                    <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
+                                        <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
+                                    </div>
                                     <div class="{{isActive('/solvingFor') && 'active'}} {{getStateSolvingFor()}}" >
                                         <a href="#/facebook">Facebook</a>
                                     </div>
-                                    <!--
-                                    <div class="{{isActive('/nominalPower') && 'active'}} {{getStateNominalPower()}}" >
-                                        <a href="#/youtube"
-                                           ng-show="viewAllowed(getStateNominalPower())">Youtube</a>
-                                        <label ng-show="!viewAllowed(getStateNominalPower())">Youtube</label>
-                                    </div>
-                                    -->
+
                                     <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
                                         <a href="#/{{ viewLanguage }}text">Text</a>
                                     </div>
-                                    <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                                        <a href="#" ng-click="changeLanguage()">Change Language</a>
-                                    </div>
+
 
                                 </div>
                             </div>
@@ -163,17 +158,18 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-options">
-                                        General Info
+                                        Contact Us
                                     </a>
                                 </h4>
                             </div>
                             <div id="nav-options" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
-                                        <a href="#/{{ viewLanguage }}tutorial">Tutorial</a>
-                                    </div>
+
                                     <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
                                         <a href="#/{{ viewLanguage }}aboutUs">About Us</a>
+                                    </div>
+                                    <div class="{{isActive('/test') && 'active'}} {{getStateStatisticalTest()}}" >
+                                    <a href="#/{{ viewLanguage }}feedback">Feedback</a>
                                     </div>
                                 </div>
                             </div>
@@ -189,19 +185,18 @@
                                 <h4 class="panel-title">
                                     <!-- TODO: disable when results unavailable -->
                                     <a data-toggle="collapse" data-parent="#nav-accordion" href="#nav-results">
-                                        Contact Us
+                                        More
                                     </a>
                                 </h4>
                             </div>
                             <div id="nav-results" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <!--
-                                    <div class="{{isActive('/results/report') && 'active'}}" >
-                                        <a href="#/{{ viewLanguage }}contactInfo">Contact Us</a>
-                                    </div>
-                                    -->
                                     <div class="{{isActive('/results/matrices') && 'active'}}" >
-                                        <a href="#/{{ viewLanguage }}feedback">Feedback</a>
+                                        <a href="#" ng-click="changeLanguage()">Language: {{viewLanguage}}</a>
+                                    </div>
+                                    <div class="{{isActive('/results/matrices') && 'active'}}" >
+                                        <a data-ng-click="reset()"
+                                            >Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -218,8 +213,9 @@
         <p>
             Please either login or sign up to continue.
         </p>
+        <div class="well">
         <div class="row vmargin15 hpadding0 box  rounded-box" style="border: 0;">
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div align="center" class="col-md-3 col-sm-3 col-xs-6">
                 <a href="#/login" class="btn btn-mode"
                    data-ng-click="setMode(cbbConstants.modeGuided)" >
                     Login
@@ -229,12 +225,13 @@
 
         <div class="row vmargin15 hpadding0 box  rounded-box" style="border: 0;">
 
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div align="center" class="col-md-3 col-sm-3 col-xs-6">
                 <a href="#/signUp" class="btn btn-mode"
                    data-ng-click="setMode(cbbConstants.modeMatrix)" >
                     Sign Up
                 </a>
             </div>
+        </div>
         </div>
     </div>
 
@@ -292,18 +289,6 @@
     <!-- main application content-->
     <div class="row hmargin5 padding0 visible-md visible-lg">
 
-        <!-- left nav -->
-        <div class="col-md-3">
-            <div ng-show="!calculateAllowed()" >
-                <!-- The processing dialog -->
-                <a href="#" data-ng-click="reset()"
-                        class="btn btn-large calculate-button"
-                        data-target="#incompleteDialog">Logout</a>
-            </div>
-
-        <!-- left nav -->
-
-            </div>
 
 
         <!-- main content area with toolbar -->

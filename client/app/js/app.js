@@ -117,7 +117,9 @@ var cbbApp = angular.module('cbb', ['ui.bootstrap','ngGrid', 'highcharts-ng'])
          */
         $routeProvider
 
-
+            .when('/',
+            {templateUrl: 'partials/home.html'}
+        )
             .when('/login',
             {templateUrl: 'partials/loginView.html', controller: 'participantsController' }
         )
