@@ -101,6 +101,20 @@
                     </input>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    Phone Number(10 Digits)
+                </td>
+                <td>
+                    <input type="text"
+                           placeholder="Enter Phone Number"
+                           ng-model="newParticipant.phoneNumber">
+                    </input>
+                </td>
+                <td class="errorClassSignUp">
+                    {{ signUpErrorPhoneNumber }}
+                </td>
+            </tr>
         </table>
 
         <h6><p  class="errorClassSignUp">{{ signUpErrorNotification }}</p></h6>

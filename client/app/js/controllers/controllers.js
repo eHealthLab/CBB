@@ -3032,7 +3032,8 @@ cbbApp.controller('stateController',
                 lastName: undefined,
                 email: undefined,
                 password: undefined,
-                passwordConfirm: undefined
+                passwordConfirm: undefined,
+                phoneNumber: undefined
             };
             //$scope.viewLanguage = "";
 
@@ -3084,12 +3085,14 @@ cbbApp.controller('stateController',
             $scope.signUpErrorEmail = undefined;
             $scope.signUpErrorPassword = undefined;
             $scope.signUpErrorNotification = undefined;
+            $scope.signUpErrorPhoneNumber = undefined;
 
             if(!$scope.newParticipant.firstName) $scope.signUpErrorFirstName = "Enter your first name.";
             else if(!$scope.newParticipant.lastName) $scope.signUpErrorLastName = "Enter your last name.";
             else if(!$scope.newParticipant.email) $scope.signUpErrorEmail = "Enter a valid Email.";
             else if(!$scope.newParticipant.password) $scope.signUpErrorPassword = "Enter a password.";
             else if($scope.newParticipant.password != $scope.newParticipant.passwordConfirm) $scope.signUpErrorNotification = "Passwords do not match. Correct them and try again.";
+            else if(!$scope.newParticipant.phoneNumber) $scope.newParticipant.phoneNumber = "Enter a valid 10 digit phone number."
             else {
                 //window.alert("Entered");
                 var email = $scope.newParticipant.email.toUpperCase();
@@ -3112,7 +3115,8 @@ cbbApp.controller('stateController',
                         $scope.newParticipant.firstName + '/' +
                         $scope.newParticipant.lastName + '/' +
                         email + '/' +
-                        $scope.newParticipant.password
+                        $scope.newParticipant.password + '/' +
+                        $scope.newParticipant.phoneNumber
                 }).
                     success(function(data, status, headers, config) {
                         //window.alert("Success");

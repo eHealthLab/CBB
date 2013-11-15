@@ -29,7 +29,7 @@ app.get('/messages/:id', getdata.one);
 app.get('/messages/spanish/:id', getdata.spanishone);
 app.post('/messages/:id/:messageID', getdata.setMessageAsRead);
 app.post('/messages/:message/:email/:messageID', getdata.addMessage);
-app.post('/loginSignup/:firstname/:lastname/:email/:password', get.addUser);
+app.post('/loginSignup/:firstname/:lastname/:email/:password/:phoneNumber', get.addUser);
 app.post('/:feedback', get.addFeedback);
 
 http.createServer(app).listen(app.get('port'), function(){

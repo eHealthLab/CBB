@@ -67,6 +67,7 @@ exports.addUser = function(req, res){
     var lastname = req.params.lastname;
     var email = req.params.email;
     var password = req.params.password;
+    var phoneNumber = req.params.phoneNumber;
     if(connection) {
         var queryStringGet = "select * from participants where email = ?";
         connection.query(queryStringGet, [email], function(err, rows, fields) {
@@ -80,7 +81,7 @@ exports.addUser = function(req, res){
                 res.send(data);
             } else {
                 console.log("Email doesn't exist");
-                var queryString = "insert into participants (firstname, lastname, email, password) values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "')";
+                var queryString = "insert into participants (firstname, lastname, email, password, phonenumber) values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + phoneNumber + "')";
                 connection.query(queryString, function(err, rows, fields) {
                     if (err) throw err;
                     queryStringGet = "select * from participants where email = ?";
