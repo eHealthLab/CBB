@@ -1,9 +1,12 @@
 var mysql = require('mysql');
-var connection = mysql.createConnection({ host: 'localhost', user: 'munjala',
-    password: 'artika12', database: 'cbbdb'});
+
+var openConnection = function() {
+    return mysql.createConnection({ host: 'localhost', user: 'munjala',
+        password: 'artika12', database: 'cbbdb'});
+};
 
 exports.all = function(req, res){
-    if (connection) {
+    if ((connection = openConnection())) {
         connection.query('select * from participants', function(err, rows, fields) {
             if (err) throw err;
             res.contentType('application/json');
@@ -11,12 +14,13 @@ exports.all = function(req, res){
             res.end();
         });
     }
+    connection.end();
 };
 
 exports.one = function(req, res){
     var id = req.params.id;
     var pwd = req.params.pwd;
-    if (connection) {
+    if ((connection = openConnection())) {
         var queryString = "select * from participants where email = ?";
         connection.query(queryString, [id], function(err, rows, fields) {
             if (err) throw err;
@@ -29,11 +33,12 @@ exports.one = function(req, res){
             else res.send("false");
         });
     }
+    connection.end();
 };
 
 /*exports.checkEmail = function(req, res){
     var email = req.params.email;
-    if (connection) {
+    if ((connection = openConnection())) {
         var queryString = "select * from participants where email = ?";
         connection.query(queryString, [email], function(err, rows, fields) {
             if (err) throw err;
@@ -47,7 +52,7 @@ exports.one = function(req, res){
 
 exports.oneEmail = function(req, res) {
     var id = req.params.id;
-    if(connection) {
+    if((connection = openConnection())) {
         var queryString ="select * from participants where email = ?";
         connection.query(queryString, [id], function(err, rows, fields) {
             if (err) throw err;
@@ -60,6 +65,7 @@ exports.oneEmail = function(req, res) {
             else res.send("false");
         });
     }
+    connection.end();
 };
 
 exports.addUser = function(req, res){
@@ -68,7 +74,7 @@ exports.addUser = function(req, res){
     var email = req.params.email;
     var password = req.params.password;
     var phoneNumber = req.params.phoneNumber;
-    if(connection) {
+    if((connection = openConnection())) {
         var queryStringGet = "select * from participants where email = ?";
         connection.query(queryStringGet, [email], function(err, rows, fields) {
             if(err) throw err;
@@ -85,7 +91,8 @@ exports.addUser = function(req, res){
                 var thisday = new Date();                        //Get 1 day in milliseconds
                 var one_day=1000*60*60*24
                 var daysSinceStart = ((thisday.getTime() - startDate.getTime())/one_day) % 30;
-                var queryString = "insert into participants (firstname, lastname, email, password, phonenumber, registerday, allmessages) values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + phoneNumber + "', " + daysSinceStart + ", false)";
+		console.log(daysSinceStart);
+                var queryString = "insert into participants (firstname, lastname, email, password, phonenumber, registerday, allmessages, registerdate) values('" + firstname + "', '" + lastname + "', '" + email + "', '" + password + "', '" + phoneNumber + "', " + daysSinceStart + ", false, now())";
                 connection.query(queryString, function(err, rows, fields) {
                     if (err) throw err;
                     queryStringGet = "select * from participants where email = ?";
@@ -101,7 +108,7 @@ exports.addUser = function(req, res){
                                 queryString = "insert into user" + id + "(outb) values (0)";
                                 for (i=0; i<rows[0].maxID - 1; i++)
                                     queryString = queryString + ", (0)";
-                                console.log(queryString);
+                                //console.log(queryString);
                                 connection.query(queryString, function(err, rows, fields) {
                                     if (err) throw err;
                                     var data = {
@@ -116,15 +123,17 @@ exports.addUser = function(req, res){
             }
         });
     }
+    connection.end();
 };
 
 exports.addFeedback = function(req, res){
     var feedback = req.params.feedback;
-    if(connection) {
+    if((connection = openConnection())) {
         var queryString = "insert into feedback values('" + feedback + "')";
         connection.query(queryString, function(err, rows, fields) {
             if (err) throw err;
             res.send("success");
         });
     }
+    connection.end();
 };

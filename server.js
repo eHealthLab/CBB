@@ -32,6 +32,6 @@ app.post('/messages/:message/:email/:messageID', getdata.addMessage);
 app.post('/loginSignup/:firstname/:lastname/:email/:password/:phoneNumber', get.addUser);
 app.post('/feedback/:feedback', getdata.addFeedback);
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), "0.0.0.0", function(){
     console.log("Express server listening on port " + app.get('port'));
 });

@@ -3054,7 +3054,7 @@ cbbApp.controller('stateController',
             else if(!$scope.newParticipant.password) $scope.loginErrorPassword = "Enter your password.";
             else {
                 var email = $scope.newParticipant.email.toUpperCase();
-                $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
+                $http.get('http://cbb.ucdenver.edu:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
                     success(function(data, status, headers, config) {
                         $scope.appsData = data;
                         if($scope.appsData != "false") {
@@ -3102,7 +3102,7 @@ cbbApp.controller('stateController',
                 //window.alert("Entered");
                 var email = $scope.newParticipant.email.toUpperCase();
                 //window.alert("After case");
-                /*$http.get('http://localhost:3000/loginSignup/' + emailID).
+                /*$http.get('http://cbb.ucdenver.edu:3000/loginSignup/' + emailID).
                     success(function(data, status, headers, config) {
                         if(data == "true")
                             participantService.setLoginEmail("false");
@@ -3116,7 +3116,7 @@ cbbApp.controller('stateController',
                     });
                 participantService.setLoginEmail(email);*/
                 $http({method: 'POST',
-                    url: 'http://localhost:3000/loginSignup/' +
+                    url: 'http://cbb.ucdenver.edu:3000/loginSignup/' +
                         $scope.newParticipant.firstName + '/' +
                         $scope.newParticipant.lastName + '/' +
                         email + '/' +
@@ -3128,7 +3128,7 @@ cbbApp.controller('stateController',
                         $scope.appsData = data;
                         if(data.status == "true") {
                             window.alert("Success Signup");
-                            $location.path("/home");
+                            $location.path("/login");
                         }
                         else {
                             window.alert("Email ID exists. Use a different Email ID.");
@@ -3193,7 +3193,7 @@ cbbApp.controller('stateController',
             }
             else {
                 $scope.textMessageFlag = 0;
-                $http.get('http://localhost:3000/messages/' + participantService.getLoginStatus()).
+                $http.get('http://cbb.ucdenver.edu:3000/messages/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
                         //window.alert("Success");
                         $scope.messageArray = data;
@@ -3216,7 +3216,7 @@ cbbApp.controller('stateController',
 
         $scope.textMessageSetFlag = function(textMessage){
             $scope.textMessageFlag = textMessage.ID;
-            $http.post('http://localhost:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
+            $http.post('http://cbb.ucdenver.edu:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     //window.alert("Message Added");
@@ -3236,7 +3236,7 @@ cbbApp.controller('stateController',
         };
 
         $scope.submitMessage = function(messageID){
-            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
+            $http.post('http://cbb.ucdenver.edu:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     window.alert("Message Added");
@@ -3276,7 +3276,7 @@ cbbApp.controller('stateController',
             else if(!$scope.newParticipant.password) $scope.loginErrorPassword = "Introduzca su contraseña.";
             else {
                 var email = $scope.newParticipant.email.toUpperCase();
-                $http.get('http://localhost:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
+                $http.get('http://cbb.ucdenver.edu:3000/loginSignup/' + email + '/' + $scope.newParticipant.password).
                     success(function(data, status, headers, config) {
                         $scope.appsData = data;
                         if($scope.appsData != "false") {
@@ -3321,7 +3321,7 @@ cbbApp.controller('stateController',
                 var email = $scope.newParticipant.email.toUpperCase();
 
                 $http({method: 'POST',
-                    url: 'http://localhost:3000/loginSignup/' +
+                    url: 'http://cbb.ucdenver.edu:3000/loginSignup/' +
                         $scope.newParticipant.firstName + '/' +
                         $scope.newParticipant.lastName + '/' +
                         email + '/' +
@@ -3330,8 +3330,10 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         //window.alert("Success");
                         $scope.appsData = data;
-                        if(data.status == "true")
+                        if(data.status == "true"){
                             window.alert("Success Signup");
+							$location.path("/login");
+						}
                         else {
                             window.alert("Existe ID de correo electrónico. Utilice una ID de correo electrónico diferente.");
                         }
@@ -3394,7 +3396,7 @@ cbbApp.controller('stateController',
             }
             else {
                 $scope.textMessageFlag = 0;
-                $http.get('http://localhost:3000/messages/spanish/' + participantService.getLoginStatus()).
+                $http.get('http://cbb.ucdenver.edu:3000/messages/spanish/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
                         window.alert("Success");
                         $scope.messageArray = data;
@@ -3417,7 +3419,7 @@ cbbApp.controller('stateController',
 
         $scope.textMessageSetFlag = function(textMessage){
             $scope.textMessageFlag = textMessage.ID;
-            $http.post('http://localhost:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
+            $http.post('http://cbb.ucdenver.edu:3000/messages/' + participantService.getLoginStatus() + '/' + textMessage.ID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     //window.alert("Message Added");
@@ -3434,7 +3436,7 @@ cbbApp.controller('stateController',
         };
 
         $scope.submitMessage = function(messageID){
-            $http.post('http://localhost:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
+            $http.post('http://cbb.ucdenver.edu:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     window.alert("Message Added");
@@ -3468,7 +3470,7 @@ cbbApp.controller('stateController',
                 if(participantService.getLoginStatus() != "false") {
 
                     $http({method: 'POST',
-                        url: 'http://localhost:3000/feedback/' +
+                        url: 'http://cbb.ucdenver.edu:3000/feedback/' +
                             $scope.feedbackText
                     }).
                     success(function(data, status, headers, config) {
@@ -3513,7 +3515,7 @@ cbbApp.controller('stateController',
             if ($scope.response != undefined) {
 
                 $http({method: 'POST',
-                    url: 'http://localhost:3000/' +
+                    url: 'http://cbb.ucdenver.edu:3000/' +
                         $scope.response
                 }).
                     success(function(data, status, headers, config) {
