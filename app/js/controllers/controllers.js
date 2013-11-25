@@ -3058,7 +3058,7 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         $scope.appsData = data;
                         if($scope.appsData != "false") {
-                            window.alert("Success");
+                            //window.alert("");
                             participantService.setLoginStatus($scope.appsData[0].ID);
                             $location.path("/home");
                             //window.alert(participantService.getLoginStatus());
@@ -3068,7 +3068,7 @@ cbbApp.controller('stateController',
                             $scope.loginErrorNotification = "Check the login information and try again."
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("Unable to contact server. Please try again later.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3127,7 +3127,7 @@ cbbApp.controller('stateController',
                         //window.alert("Success");
                         $scope.appsData = data;
                         if(data.status == "true") {
-                            window.alert("Success Signup");
+                            window.alert("You have successfully signed up. Please login to continue");
                             $location.path("/login");
                         }
                         else {
@@ -3135,7 +3135,7 @@ cbbApp.controller('stateController',
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("Unable to contact server. Please try again later.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3202,7 +3202,7 @@ cbbApp.controller('stateController',
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("Unable to contact server. Please try again later.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3230,7 +3230,7 @@ cbbApp.controller('stateController',
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).
                 error(function(data, status, headers, config) {
-                    window.alert("Failure " + status);
+                    //window.alert("Failure " + status);
                 });
             //$scope.messageRead = !$scope.messageRead;
         };
@@ -3239,11 +3239,11 @@ cbbApp.controller('stateController',
             $http.post('http://cbb.ucdenver.edu:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
-                    window.alert("Message Added");
+                    window.alert("Message has been sent.");
                     $scope.messageArray = data;
                 }).
                 error(function(data, status, headers, config) {
-                    window.alert("Failure " + status);
+                    window.alert("Unable to contact server. Please try again later.");
                 });
         };
     })
@@ -3280,7 +3280,7 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         $scope.appsData = data;
                         if($scope.appsData != "false") {
-                            window.alert("Success");
+                            //window.alert("Success");
                             participantService.setLoginStatus($scope.appsData[0].ID);
                             //window.alert(participantService.getLoginStatus());
                         }
@@ -3288,7 +3288,7 @@ cbbApp.controller('stateController',
                             $scope.loginErrorNotification = "Compruebe la información de inicio de sesión y vuelva a intentarlo."
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("No se ha podido contactar con el servidor. Por favor, inténtelo de nuevo más tarde.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3331,7 +3331,7 @@ cbbApp.controller('stateController',
                         //window.alert("Success");
                         $scope.appsData = data;
                         if(data.status == "true"){
-                            window.alert("Success Signup");
+                            window.alert("Has registrado correctamente. Inicia sesión para continuar");
 							$location.path("/login");
 						}
                         else {
@@ -3339,7 +3339,7 @@ cbbApp.controller('stateController',
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("No se ha podido contactar con el servidor. Por favor, inténtelo de nuevo más tarde.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3392,20 +3392,20 @@ cbbApp.controller('stateController',
             //window.alert("Failure");
             //window.alert($scope.newParticipant.password);
             if(participantService.getLoginStatus() == "false"){
-                window.alert("Please login to view messages.");
+                window.alert("Ingrese para ver los mensajes.");
             }
             else {
                 $scope.textMessageFlag = 0;
                 $http.get('http://cbb.ucdenver.edu:3000/messages/spanish/' + participantService.getLoginStatus()).
                     success(function(data, status, headers, config) {
-                        window.alert("Success");
+                        //window.alert("Success");
                         $scope.messageArray = data;
                         for(var s in $scope.messageArray) {
                             if(!s.outb) $scope.unreadMessageCount += 1;
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("No se ha podido contactar con el servidor. Por favor, inténtelo de nuevo más tarde.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3430,7 +3430,7 @@ cbbApp.controller('stateController',
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).
                 error(function(data, status, headers, config) {
-                    window.alert("Failure " + status);
+                    //window.alert("Failure " + status);
                 });
             //$scope.messageRead = !$scope.messageRead;
         };
@@ -3439,11 +3439,11 @@ cbbApp.controller('stateController',
             $http.post('http://cbb.ucdenver.edu:3000/messages/' + $scope.newMessage1.message + '/' + participantService.getLoginStatus() + '/' + messageID).
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
-                    window.alert("Message Added");
+                    window.alert("El mensaje ha sido enviado.");
                     $scope.messageArray = data;
                 }).
                 error(function(data, status, headers, config) {
-                    window.alert("Failure " + status);
+                    window.alert("No se ha podido contactar con el servidor. Por favor, inténtelo de nuevo más tarde.");
                 });
         };
     })
@@ -3476,12 +3476,10 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                             $scope.appsData = data;
                             if(data == "Success")
-                                window.alert("Success inserting feedback");
-                            else
-                                window.alert("Failure inserting feedback");
+                                window.alert("Your feedback has been submitted.");
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("Failure" + status);
+                        window.alert("Unable to contact server. Please try again later.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });

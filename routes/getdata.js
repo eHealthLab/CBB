@@ -128,7 +128,7 @@ exports.onemessage = function(req, res){
                                 "outb": 1,
                                 "registerday": 2
                             });
-                            res.send();
+                            res.send(rows);
                         }
                     });
                 }
@@ -211,8 +211,8 @@ exports.spanishone = function(req, res){
                                         }
                                         rows1.unshift({
                                             "ID": 27,
-                                            "subject": "Welcome",
-                                            "message": "Welcome to Bright Beginnings.",
+                                            "subject": "Bienvenido",
+                                            "message": "Bienvenido a Bright Beginnings.",
                                             "releasedate": "2013-11-22T16:00:00.000Z",
                                             "directmessage": 1,
                                             "inflag": 0,
@@ -232,8 +232,8 @@ exports.spanishone = function(req, res){
                                 console.log("Not last message");
                                 rows.unshift({
                                     "ID": 27,
-                                    "subject": "Welcome",
-                                    "message": "Welcome to Bright Beginnings.",
+                                    "subject": "Bienvenido",
+                                    "message": "Bienvenido a Bright Beginnings.",
                                     "releasedate": "2013-11-22T16:00:00.000Z",
                                     "directmessage": 1,
                                     "inflag": 0,
@@ -249,8 +249,8 @@ exports.spanishone = function(req, res){
                         } else {
                             rows.unshift({
                                 "ID": 27,
-                                "subject": "Welcome",
-                                "message": "Welcome to Bright Beginnings.",
+                                "subject": "Bienvenido",
+                                "message": "Bienvenido a Bright Beginnings.",
                                 "releasedate": "2013-11-22T16:00:00.000Z",
                                 "directmessage": 1,
                                 "inflag": 0,
@@ -261,7 +261,7 @@ exports.spanishone = function(req, res){
                                 "outb": 1,
                                 "registerday": 2
                             });
-                            res.send();
+                            res.send(rows);
                         }
                     });
                 }
