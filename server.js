@@ -25,7 +25,7 @@ app.configure('development', function(){
 //app.get('/', get.all);
 //app.get('/loginSignup/:id', get.oneEmail)
 app.get('/loginSignup/:id/:pwd', get.one);
-app.get('/messages/:id', getdata.one);
+app.get('/messages/:id', getdata.onemessage);
 app.get('/messages/spanish/:id', getdata.spanishone);
 app.post('/messages/:id/:messageID', getdata.setMessageAsRead);
 app.post('/messages/:message/:email/:messageID', getdata.addMessage);
