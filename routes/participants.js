@@ -92,7 +92,7 @@ exports.addUser = function(req, res){
                 res.send(data);
             } else {
                 console.log("Email doesn't exist");
-                var startDate =new Date(2013, 10, 20);    //Month is 0-11 in JavaScript
+                var startDate =new Date(2013, 10, 27);    //Month is 0-11 in JavaScript
                 var thisday = new Date();                        //Get 1 day in milliseconds
                 var one_day=1000*60*60*24
                 var daysSinceStart = ((thisday.getTime() - startDate.getTime())/one_day) % 30;
