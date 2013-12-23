@@ -3182,6 +3182,7 @@ cbbApp.controller('stateController',
             $scope.messageRead = true;
             $scope.unreadMessageCount = 0;
             $scope.loginTextStatus = participantService.getLoginStatus();
+			$scope.totalUnread = 0;
             //$scope.getMessages();
         }
 
@@ -3197,8 +3198,8 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         //window.alert("Success");
                         $scope.messageArray = data;
-                        for(var s in $scope.messageArray) {
-                            if(!s.outb) $scope.unreadMessageCount += 1;
+                        for(i=0; i<$scope.messageArray.length; i++) {
+                            if($scope.messageArray[i].outb != true) { $scope.totalUnread += 1; }
                         }
                     }).
                     error(function(data, status, headers, config) {
@@ -3223,6 +3224,7 @@ cbbApp.controller('stateController',
                     //$scope.messageArray[textMessage.ID-1].outb = true;
                     for(i=0; i<$scope.messageArray.length; i++) {
                         if($scope.messageArray[i].ID == textMessage.ID) {
+							if($scope.messageArray[i].outb != true) { $scope.totalUnread -= 1; }
                             $scope.messageArray[i].outb = true;
                             break;
                         }
@@ -3385,6 +3387,7 @@ cbbApp.controller('stateController',
             };
             $scope.messageRead = true;
             $scope.unreadMessageCount = 0;
+			$scope.totalUnread = 0;
             //$scope.getMessages();
         }
 
@@ -3392,7 +3395,7 @@ cbbApp.controller('stateController',
             //window.alert("Failure");
             //window.alert($scope.newParticipant.password);
             if(participantService.getLoginStatus() == "false"){
-                window.alert("Ingrese para ver los mensajes.");
+                window.alert("Please login to view messages.");
             }
             else {
                 $scope.textMessageFlag = 0;
@@ -3400,12 +3403,12 @@ cbbApp.controller('stateController',
                     success(function(data, status, headers, config) {
                         //window.alert("Success");
                         $scope.messageArray = data;
-                        for(var s in $scope.messageArray) {
-                            if(!s.outb) $scope.unreadMessageCount += 1;
+                        for(i=0; i<$scope.messageArray.length; i++) {
+                            if($scope.messageArray[i].outb != true) { $scope.totalUnread += 1; }
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        window.alert("No se ha podido contactar con el servidor. Por favor, inténtelo de nuevo más tarde.");
+                        window.alert("Unable to contact server. Please try again later.");
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
@@ -3423,9 +3426,13 @@ cbbApp.controller('stateController',
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     //window.alert("Message Added");
-                    $scope.messageArray[textMessage.ID-1].outb = true;
-                    for(var s in $scope.messageArray) {
-                        if(!s.outb) $scope.unreadMessageCount += 1;
+                    //$scope.messageArray[textMessage.ID-1].outb = true;
+                    for(i=0; i<$scope.messageArray.length; i++) {
+                        if($scope.messageArray[i].ID == textMessage.ID) {
+							if($scope.messageArray[i].outb != true) { $scope.totalUnread -= 1; }
+                            $scope.messageArray[i].outb = true;
+                            break;
+                        }
                     }
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).
