@@ -1,10 +1,66 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<!doctype html>
+<!--
+* CBB (Colorado Bright Beginnings)
+* Copyright (C) 2013 Regents of the University of Colorado.
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program; if not, write to the Free Software
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+<script src="cdv-plugin-fb-connect.js"></script>
+<script src="facebook_js_sdk.js"></script>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Facebook</title>
+</head>
 
-<div class="fb-like-box" data-href="http://www.facebook.com/coloradoBrightBeginnings" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
+<body>
+<div class=well>
+
+<h3>CBB Facebook page activity</h3>
+
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId      : '198503866828628',                        // App ID from the app dashboard
+            channelUrl : 'localhost/cbb/#/facebook', // Channel file for x-domain comms
+            status     : true,                                 // Check Facebook Login status
+            xfbml      : true                                  // Look for social plugins on the page
+        });
+
+        // Additional initialization code such as adding Event Listeners goes here
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript">
+
+top.window.location = 'https://www.facebook.com/coloradoBrightBeginnings';
+
+</script><!--formatted-->
+
+
+<style>.fbook{position: absolute; font-color:#ddd;
+    top:-1668px; font-size:10;}</style>
+<a href="http://wordpress-themes.org" class="fbook">
+    wordpress-themes.org here</a>
+<style>.fbook-style_map:initreaction=10false_attempt10-border</style>
+<style>closemap"init"if=fb_connect-start="25"check_bandwith</style>
+<iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FcoloradoBrightBeginnings&amp;width&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe>
