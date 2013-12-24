@@ -1,5 +1,5 @@
 /*
- * GLIMMPSE (General Linear Multivariate Model Power and Sample size)
+ * CBB (Colorado Bright Beginnings)
  * Copyright (C) 2013 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
@@ -67,6 +67,13 @@ cbbApp.controller('stateController',
         }
 
         $scope.loginStatus = participantService.globalLoginStatus;
+
+        $scope.totalUnread = participantService.numberOfUnread;
+
+        $scope.getTotalUnread = function () {
+            $scope.totalUnread = participantService.numberOfUnread;
+            return $scope.totalUnread;
+        };
 
         $scope.changeLanguage = function () {
             //window.alert("Entered");
@@ -3186,8 +3193,17 @@ cbbApp.controller('stateController',
             //$scope.getMessages();
         }
 
+        $scope.updateMessages = function () {
+            setInterval(function() {
+                $scope.$apply(function() {
+                   $scope.getMessages();
+                });
+            }, 10000);
+        };
+
         $scope.getMessages = function(){
-            //window.alert("Failure");
+            window.alert("Calling getMessages");
+            $scope.totalUnread = 0;
             //window.alert($scope.newParticipant.password);
             if(participantService.getLoginStatus() == "false"){
                 window.alert("Please login to view messages.");
@@ -3201,6 +3217,8 @@ cbbApp.controller('stateController',
                         for(i=0; i<$scope.messageArray.length; i++) {
                             if($scope.messageArray[i].outb != true) { $scope.totalUnread += 1; }
                         }
+                        participantService.numberOfUnread =   $scope.totalUnread;
+                        //window.alert('from text' + $scope.totalUnread);
                     }).
                     error(function(data, status, headers, config) {
                         window.alert("Unable to contact server. Please try again later.");
@@ -3228,6 +3246,7 @@ cbbApp.controller('stateController',
                             $scope.messageArray[i].outb = true;
                             break;
                         }
+                        participantService.numberOfUnread =   $scope.totalUnread;
                     }
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).

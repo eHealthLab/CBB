@@ -22,7 +22,7 @@
 <!--<div ng-show="glimmpseConstants.debug == true">{{studyDesign.alphaList}}</div>-->
 
 
-<div ng-init="getMessages()">
+<div ng-init="updateMessages()">
 
     <style>
         table, td, th
@@ -121,7 +121,10 @@
         <!-- Codes by HTML.am -->
 
         <h3>
-            Text Messages <sup style="background-color:red;color:white;">{{ totalUnread }} unread messages</sup>
+            Text Messages
+            <!--
+            <sup style="background-color:red;color:white;" ng-show="totalUnread > 0">{{ totalUnread }} unread messages</sup>
+            -->
         </h3>
         <!--div style="margin-bottom: 35px;">
             <a

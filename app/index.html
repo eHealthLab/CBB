@@ -140,7 +140,7 @@
                                     </div>
 
                                     <div class="{{isActive('/typeIError') && 'active'}} {{getStateTypeIError()}}" >
-                                        <a href="#/{{ viewLanguage }}text">Text</a>
+                                        <a href="#/{{ viewLanguage }}text">Text<sup style="background-color:darkred;color:white;font-size: 0.9em;width: 1.1em;" ng-show="getTotalUnread() > 0">{{getTotalUnread()}}</sup></a>
                                     </div>
 
 

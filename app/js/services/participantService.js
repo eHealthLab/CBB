@@ -32,7 +32,18 @@ cbbApp.factory('participantService', function($http, $q, cbbConstants) {
 
     var languageStatus = "true";
 
+    participantServiceInstance.numberOfUnread = 0;
+
     participantServiceInstance.globalLoginStatus = "false";
+
+    participantServiceInstance.getUnreadTextStatus = function()  {
+        return participantServiceInstance.numberOfUnread;
+    }
+
+    participantServiceInstance.setUnreadTextStatus = function(totalUnread)  {
+        participantServiceInstance.numberOfUnread = totalUnread;
+    }
+
 
     participantServiceInstance.getLoginStatus = function() {
         return loginStatus;
