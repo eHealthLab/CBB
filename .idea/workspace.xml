@@ -23,40 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="feedbackView.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/partials/feedbackView.html">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="0" selection-end="1633" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="855">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feedbackView.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/partials/spanish/feedbackView.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="50" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.5807522" vertical-offset="0" max-vertical-offset="904">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="textView.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/partials/spanish/textView.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="75.0" vertical-offset="1800" max-vertical-offset="2850">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="93" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3150">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -64,10 +35,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/controllers/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="39" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="54345">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="3225" column="55" selection-start="128965" selection-end="128965" vertical-scroll-proportion="0.0" vertical-offset="47624" max-vertical-offset="54135">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,7 +44,34 @@
       <file leaf-file-name="textView.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/partials/textView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="6" selection-start="3091" selection-end="3091" vertical-scroll-proportion="-12.666667" vertical-offset="1646" max-vertical-offset="2640">
+            <state line="131" column="34" selection-start="3127" selection-end="3127" vertical-scroll-proportion="-9.541667" vertical-offset="1736" max-vertical-offset="2640">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getdata.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/getdata.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="53" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.5409836" vertical-offset="150" max-vertical-offset="2565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="participants.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/participants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="275" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="2040">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facebookView.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/partials/spanish/facebookView.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="1335">
               <folding />
             </state>
           </provider>
@@ -91,11 +87,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/client/app/partials/home.html" />
-        <option value="$PROJECT_DIR$/client/app/js/app.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/app/partials/feedbackView.html" />
-        <option value="$PROJECT_DIR$/routes/getdata.js" />
         <option value="$PROJECT_DIR$/client/app/partials/spanish/aboutUsView.html" />
         <option value="$PROJECT_DIR$/client/app/partials/tutorialView.html" />
         <option value="$PROJECT_DIR$/client/app/partials/spanish/tutorialView.html" />
@@ -107,6 +100,9 @@
         <option value="$PROJECT_DIR$/app/partials/feedbackView.html" />
         <option value="$PROJECT_DIR$/app/partials/spanish/feedbackView.html" />
         <option value="$PROJECT_DIR$/app/partials/textView.html" />
+        <option value="$PROJECT_DIR$/app/js/controllers/controllers.js" />
+        <option value="$PROJECT_DIR$/routes/participants.js" />
+        <option value="$PROJECT_DIR$/routes/getdata.js" />
       </list>
     </option>
   </component>
@@ -142,6 +138,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -157,6 +154,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CBB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -256,7 +267,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,46 +400,96 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/partials/feedbackView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="0" selection-end="1633" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="855">
+        <state line="33" column="0" selection-start="0" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/spanish/feedbackView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="50" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/spanish/textView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="2850" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="93" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3150" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/controllers/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="39" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="54345">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/partials/textView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="6" selection-start="3091" selection-end="3091" vertical-scroll-proportion="-12.666667" vertical-offset="1646" max-vertical-offset="2640">
+        <state line="130" column="6" selection-start="3091" selection-end="3091" vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="2640">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/feedbackView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="0" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/spanish/feedbackView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="26" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.7466814" vertical-offset="0" max-vertical-offset="904" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/partials/spanish/textView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="75.0" vertical-offset="1800" max-vertical-offset="2850">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9911505" vertical-offset="1800" max-vertical-offset="2850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="93" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3150">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="164" column="93" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.51724136" vertical-offset="1725" max-vertical-offset="2895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/textView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="34" selection-start="3127" selection-end="3127" vertical-scroll-proportion="-9.541667" vertical-offset="1736" max-vertical-offset="2640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/spanish/facebookView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="1335">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/controllers/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="39" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="54345">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="3225" column="55" selection-start="128965" selection-end="128965" vertical-scroll-proportion="0.0" vertical-offset="47624" max-vertical-offset="54135">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/partials/spanish/feedbackView.html">
+    <entry file="file://$PROJECT_DIR$/routes/participants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="50" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.5807522" vertical-offset="0" max-vertical-offset="904">
+        <state line="87" column="275" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="2040">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/getdata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="53" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.5409836" vertical-offset="150" max-vertical-offset="2565">
           <folding />
         </state>
       </provider>

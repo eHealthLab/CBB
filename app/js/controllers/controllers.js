@@ -3220,9 +3220,12 @@ cbbApp.controller('stateController',
                 success(function(data, status, headers, config) {
                     //window.alert("hi" + $scope.newMessage1.message);
                     //window.alert("Message Added");
-                    $scope.messageArray[textMessage.ID-1].outb = true;
-                    for(var s in $scope.messageArray) {
-                        if(!s.outb) $scope.unreadMessageCount += 1;
+                    //$scope.messageArray[textMessage.ID-1].outb = true;
+                    for(i=0; i<$scope.messageArray.length; i++) {
+                        if($scope.messageArray[i].ID == textMessage.ID) {
+                            $scope.messageArray[i].outb = true;
+                            break;
+                        }
                     }
                     //window.alert($scope.messageArray[textMessage.ID].outb + " " + textMessage.ID);
                 }).
